@@ -108,6 +108,15 @@ public class Zadatak extends AbstractDomainObject {
     }
 
     public void setNazivZadatka(String NazivZadatka) {
+        if(NazivZadatka==null){
+            throw new NullPointerException("Naziv zadatka ne sme biti null");
+        }
+            
+        
+        if (NazivZadatka.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Naziv zadatka ne sme imati brojeve");
+
+        }
         this.NazivZadatka = NazivZadatka;
     }
 
@@ -116,6 +125,9 @@ public class Zadatak extends AbstractDomainObject {
     }
 
     public void setTim(Tim tim) {
+        if(tim==null){
+            throw new NullPointerException("Tim ne sme biti null");
+        }
         this.tim = tim;
     }
 
