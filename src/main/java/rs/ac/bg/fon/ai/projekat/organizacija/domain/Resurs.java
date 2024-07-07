@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -45,6 +46,13 @@ public class Resurs extends AbstractDomainObject {
     }
 
     public void setNazivResursa(String nazivResursa) {
+        if (nazivResursa == null) {
+            throw new NullPointerException("Naziv resursa ne sme biti null");
+        }
+        if (nazivResursa == "") {
+            throw new IllegalArgumentException("Naziv resursa ne sme biti prazan");
+
+        }
         this.nazivResursa = nazivResursa;
     }
 
@@ -53,6 +61,9 @@ public class Resurs extends AbstractDomainObject {
     }
 
     public void setKolicina(int kolicina) {
+        if (kolicina < 0) {
+            throw new IllegalArgumentException("Kolicina ne sme biti negativna");
+        }
         this.kolicina = kolicina;
     }
 
@@ -61,12 +72,45 @@ public class Resurs extends AbstractDomainObject {
     }
 
     public void setTim(Tim tim) {
+        if (tim == null) {
+            throw new NullPointerException("Tim ne sme biti null");
+        }
         this.tim = tim;
     }
 
     @Override
     public String toString() {
         return nazivResursa;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Resurs other = (Resurs) obj;
+        if (this.IDResursa != other.IDResursa) {
+            return false;
+        }
+        if (this.kolicina != other.kolicina) {
+            return false;
+        }
+        if (!Objects.equals(this.nazivResursa, other.nazivResursa)) {
+            return false;
+        }
+        return Objects.equals(this.tim, other.tim);
     }
 
     @Override
@@ -141,7 +185,7 @@ public class Resurs extends AbstractDomainObject {
 
     @Override
     public String uslovZaSelect() {
- return "";
+        return "";
     }
 
     @Override

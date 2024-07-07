@@ -67,6 +67,11 @@ public class Zadatak extends AbstractDomainObject {
     }
 
     @Override
+    public String toString() {
+        return NazivZadatka  ;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;

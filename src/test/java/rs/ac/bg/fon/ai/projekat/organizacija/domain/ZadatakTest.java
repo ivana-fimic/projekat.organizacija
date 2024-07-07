@@ -147,5 +147,18 @@ public class ZadatakTest {
                 () -> z.setTim(null));
 
     }
+    
+    
+    @Test
+    public void testToString() {
+       
+        z.setNazivZadatka("kreiranje objava");
+
+        String st = z.toString();
+        System.out.println(st);
+        assertTrue(st.contains("kreiranje objava"));
+      
+
+    }
 
 }
