@@ -67,7 +67,8 @@ public class TimTest {
         assertNotNull(t);
         assertEquals(1, t.getIDTima());
         assertEquals("PR", t.getNazivTima());
-        assertEquals("PR", t.getNazivTima());
+        assertEquals(8, t.getBrojClanova());
+
         assertEquals(1, t.getIDProjekta().getIDProjekta());
         assertEquals("BDW", t.getIDProjekta().getNazivProjekta());
         assertEquals("dizajn", t.getIDProjekta().getVrstaProjekta());
@@ -81,59 +82,58 @@ public class TimTest {
      */
     @Test
     public void testToString() {
-       
+
         t.setNazivTima("PR");
         LocalDate datumP = LocalDate.of(2024, 7, 15);
         LocalDate datumZ = LocalDate.of(2024, 9, 15);
         t.setIDProjekta(new Projekat(0, "BDW", "dizajn", datumP, datumZ));
 
         String st = t.toString();
-        
+
         System.out.println(st);
         assertTrue(st.contains("PR"));
         assertTrue(st.contains("BDW"));
-      
 
     }
 
-        @Test
-	void testEqualsObject() {
-		Tim t2 = t;
+    @Test
+    void testEqualsObject() {
+        Tim t2 = t;
 
-		assertTrue( t.equals(t2));
-	}
-	
-	@Test
-	void testEqualsObjectNull() {
-		assertFalse( t.equals(null));
-	}
-	
-	@Test
-	void testEqualsObjectDrugaKlasa() {
-		assertFalse( t.equals( new Zadatak()));
-	}
+        assertTrue(t.equals(t2));
+    }
 
-  @ParameterizedTest
-	@CsvSource({
-		"PR, BDW, PR, BDW, true",
-		"PR, BDW, FR, BDW, false",
-		"PR, BDW, PR, AIBG, false",
-		"PR, BDW, FR, AIBG, false"
-	})
-	void testEqualsObjectSveOk(String nazivTima, String nazivProjekta, 
-			String nazivTima2, String nazivProjekta2, boolean eq) {
-            
-		t.setNazivTima(nazivTima);
-                t.setIDProjekta(new Projekat());
-		t.getIDProjekta().setNazivProjekta(nazivProjekta);
-                
-		Tim t2 = new  Tim();
-                t2.setNazivTima(nazivTima2);
-                t2.setIDProjekta(new Projekat());
-                t2.getIDProjekta().setNazivProjekta(nazivProjekta2);
-		
-		assertEquals(eq, t.equals(t2));
-	}
+    @Test
+    void testEqualsObjectNull() {
+        assertFalse(t.equals(null));
+    }
+
+    @Test
+    void testEqualsObjectDrugaKlasa() {
+        assertFalse(t.equals(new Zadatak()));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "PR, BDW, PR, BDW, true",
+        "PR, BDW, FR, BDW, false",
+        "PR, BDW, PR, AIBG, false",
+        "PR, BDW, FR, AIBG, false"
+    })
+    void testEqualsObjectSveOk(String nazivTima, String nazivProjekta,
+            String nazivTima2, String nazivProjekta2, boolean eq) {
+
+        t.setNazivTima(nazivTima);
+        t.setIDProjekta(new Projekat());
+        t.getIDProjekta().setNazivProjekta(nazivProjekta);
+
+        Tim t2 = new Tim();
+        t2.setNazivTima(nazivTima2);
+        t2.setIDProjekta(new Projekat());
+        t2.getIDProjekta().setNazivProjekta(nazivProjekta2);
+
+        assertEquals(eq, t.equals(t2));
+    }
 
     /**
      * Test of setNazivTima method, of class Tim.
@@ -143,29 +143,27 @@ public class TimTest {
         t.setNazivTima("PR");
         assertEquals("PR", t.getNazivTima());
     }
-    
+
     @Test
-	void testSetNazivTimaNull() {
-		Exception e = assertThrows(java.lang.NullPointerException.class,   
-				() -> t.setNazivTima(null)	);
-		
-	}
-        
-         @Test
-	void testSetNazivTimaSlova() {
-		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
-				() -> t.setNazivTima("a5")	);
-		
-	}
-        @Test
-	void testSetNazivTimaVelikoPocetno() {
-		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
-				() -> t.setNazivTima("pr")	);
-		
-	}
-        
-        
-        
+    void testSetNazivTimaNull() {
+        Exception e = assertThrows(java.lang.NullPointerException.class,
+                () -> t.setNazivTima(null));
+
+    }
+
+    @Test
+    void testSetNazivTimaSlova() {
+        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+                () -> t.setNazivTima("a5"));
+
+    }
+
+    @Test
+    void testSetNazivTimaVelikoPocetno() {
+        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+                () -> t.setNazivTima("pr"));
+
+    }
 
     /**
      * Test of setBrojClanova method, of class Tim.
@@ -176,13 +174,13 @@ public class TimTest {
         assertEquals(8, t.getBrojClanova());
 
     }
-    
-     @Test
-	void testSetBrojClanovaManjeOdNula() {
-		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
-				() -> t.setBrojClanova(-5)	);
-		
-	}
+
+    @Test
+    void testSetBrojClanovaManjeOdNula() {
+        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+                () -> t.setBrojClanova(-5));
+
+    }
 
     /**
      * Test of setIDProjekta method, of class Tim.
@@ -198,15 +196,12 @@ public class TimTest {
         assertEquals(datumP, t.getIDProjekta().getDatumPocetka());
         assertEquals(datumZ, t.getIDProjekta().getDatumZavrsetka());
     }
-    
-    @Test
-	void testSetIDProjektaNull() {
-		Exception e = assertThrows(java.lang.NullPointerException.class,   
-				() -> t.setIDProjekta(null)	);
-		
-	}
-    
 
- 
+    @Test
+    void testSetIDProjektaNull() {
+        Exception e = assertThrows(java.lang.NullPointerException.class,
+                () -> t.setIDProjekta(null));
+
+    }
 
 }

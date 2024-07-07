@@ -48,6 +48,17 @@ public class Projekat extends AbstractDomainObject {
     }
 
     public void setNazivProjekta(String NazivProjekta) {
+        if (NazivProjekta == null) {
+            throw new NullPointerException("Naziv projekta ne sme biti null");
+        }
+        if (NazivProjekta.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Naziv projekta ne sme imati brojeve");
+
+        }
+        if (!(NazivProjekta.equals(NazivProjekta.toUpperCase()))) {
+
+            throw new IllegalArgumentException("Naziv projekta ne sme imati mala slova");
+        }
         this.NazivProjekta = NazivProjekta;
     }
 
@@ -56,6 +67,15 @@ public class Projekat extends AbstractDomainObject {
     }
 
     public void setVrstaProjekta(String VrstaProjekta) {
+        if (VrstaProjekta == null) {
+            throw new NullPointerException("Vrsta projekta ne sme biti null");
+        }
+        if (VrstaProjekta.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Vrsta projekta ne sme imati brojeve");
+
+        }
+
+        
         this.VrstaProjekta = VrstaProjekta;
     }
 
@@ -64,6 +84,10 @@ public class Projekat extends AbstractDomainObject {
     }
 
     public void setDatumPocetka(LocalDate DatumPocetka) {
+        if (DatumPocetka == null) {
+            throw new NullPointerException("Datum pocetka projekta ne sme biti null");
+
+        }
         this.DatumPocetka = DatumPocetka;
     }
 
@@ -72,6 +96,10 @@ public class Projekat extends AbstractDomainObject {
     }
 
     public void setDatumZavrsetka(LocalDate DatumZavrsetka) {
+        if (DatumZavrsetka == null) {
+            throw new NullPointerException("Datum zavrsetka projekta ne sme biti null");
+
+        }
         this.DatumZavrsetka = DatumZavrsetka;
     }
 
@@ -122,7 +150,8 @@ public class Projekat extends AbstractDomainObject {
 
     @Override
     public String join() {
-return "";   }
+        return "";
+    }
 
     @Override
     public ArrayList<AbstractDomainObject> vratiListu(ResultSet rs) throws SQLException {
@@ -137,18 +166,18 @@ return "";   }
 
             Date sqlDatumZavrsetka = rs.getDate("pr.DatumZavrsetka");
             SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDatumZavrsetka= formatter3.format(sqlDatumZavrsetka);
+            String formattedDatumZavrsetka = formatter3.format(sqlDatumZavrsetka);
             LocalDate localDatumZavrsetka = LocalDate.parse(formattedDatumZavrsetka);
-            
-             Projekat pr = new Projekat(rs.getInt("IDProjekta"),
-                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"),localDatumPocetka,localDatumZavrsetka);
-             
+
+            Projekat pr = new Projekat(rs.getInt("IDProjekta"),
+                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"), localDatumPocetka, localDatumZavrsetka);
 
             lista.add(pr);
         }
 
         rs.close();
-        return lista;    }
+        return lista;
+    }
 
     @Override
     public String koloneZaInsert() {
@@ -177,7 +206,7 @@ return "";   }
 
     @Override
     public String uslovZaSelect() {
- return "";
+        return "";
     }
 
     @Override
