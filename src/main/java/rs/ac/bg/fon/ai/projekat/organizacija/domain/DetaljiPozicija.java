@@ -36,6 +36,9 @@ public class DetaljiPozicija extends AbstractDomainObject {
     }
 
     public void setTim(Tim tim) {
+        if(tim==null){
+             throw new NullPointerException("Tim ne sme biti null");
+        }
         this.tim = tim;
     }
 
@@ -46,6 +49,9 @@ public class DetaljiPozicija extends AbstractDomainObject {
     }
 
     public void setPozicija(Pozicija pozicija) {
+        if(pozicija==null){
+             throw new NullPointerException("Pozicija ne sme biti null");
+        }
         this.pozicija = pozicija;
     }
 
@@ -55,8 +61,17 @@ public class DetaljiPozicija extends AbstractDomainObject {
     }
 
     public void setBrojPozicija(int brojPozicija) {
+        if(brojPozicija<0){
+             throw new IllegalArgumentException("Broj pozicija ne sme biti negativan");
+        }
         this.brojPozicija = brojPozicija;
     }
+
+    @Override
+    public String toString() {
+        return tim.getNazivTima()+" "+pozicija.getNazivPozicije()+" "+brojPozicija;
+    }
+    
 
  
  

@@ -29,13 +29,7 @@ public class TimTest {
     public TimTest() {
     }
 
-    @BeforeAll
-    public static void setUpClass() {
-    }
-
-    @AfterAll
-    public static void tearDownClass() {
-    }
+    
 
     @BeforeEach
     public void setUp() {
