@@ -238,6 +238,7 @@ public class KreirajClana extends javax.swing.JDialog {
 
     private String daLiJeDobarFormat(String ime, String prezime, String godinaStudija, String fakultet) {
         String poruka = "";
+        
         if (ime.matches(".*\\d+.*")) {
             poruka += "Ime ne sme sadrzati broj \n";
         }
@@ -253,7 +254,7 @@ public class KreirajClana extends javax.swing.JDialog {
         if (Character.isLowerCase(ime.charAt(0))) {
             poruka += "Prvo slovo imena mora biti veliko \n";
         }
-
+        
         if (Character.isLowerCase(prezime.charAt(0))) {
             poruka += "Prvo slovo prezimena mora biti veliko \n";
         }

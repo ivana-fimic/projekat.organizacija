@@ -48,6 +48,7 @@ public class PozicijaTest {
     void testPozicijaParam() {
         p = new Pozicija(1, "Koordinator");
         assertNotNull(p);
+        assertEquals(1, p.getIDPozicije());
         assertEquals("Koordinator", p.getNazivPozicije());
 
     }
@@ -59,6 +60,19 @@ public class PozicijaTest {
     public void testSetNazivPozicije() {
         p.setNazivPozicije("Koordinator");
         assertEquals("Koordinator", p.getNazivPozicije());
+
+    }
+     @Test
+    void testSetNazivPozicijaNull() {
+        Exception e = assertThrows(java.lang.NullPointerException.class,
+                () -> p.setNazivPozicije(null));
+
+    }
+
+    @Test
+    void testSetNazivPozicijaPrazno() {
+        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+                () -> p.setNazivPozicije(""));
 
     }
 

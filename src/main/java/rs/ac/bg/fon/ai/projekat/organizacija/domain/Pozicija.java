@@ -38,6 +38,13 @@ public class Pozicija  extends AbstractDomainObject{
     }
 
     public void setNazivPozicije(String nazivPozicije) {
+        if (nazivPozicije == null) {
+            throw new NullPointerException("Naziv pozicije ne sme biti null");
+        }
+        if (nazivPozicije == "") {
+            throw new IllegalArgumentException("Naziv pozicije ne sme biti prazan");
+
+        }
         this.nazivPozicije = nazivPozicije;
     }
 

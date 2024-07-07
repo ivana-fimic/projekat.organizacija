@@ -60,8 +60,9 @@ public class ResursTest {
         assertEquals("oprema", r.getNazivResursa());
         assertEquals(3, r.getKolicina());
 
-        assertEquals(1, r.getTim().getIDProjekta().getIDProjekta());
+        assertEquals(1, r.getTim().getIDTima());
         assertEquals("PR", r.getTim().getNazivTima());
+        assertEquals(8, r.getTim().getBrojClanova());
         assertEquals(1, r.getTim().getIDProjekta().getIDProjekta());
         assertEquals("BDW", r.getTim().getIDProjekta().getNazivProjekta());
         assertEquals("dizajn", r.getTim().getIDProjekta().getVrstaProjekta());
@@ -122,6 +123,8 @@ public class ResursTest {
         r.setTim(new Tim(1, "PR", 8, new Projekat(1, "BDW", "dizajn", datumP, datumZ)));
         assertEquals(1, r.getTim().getIDTima());
         assertEquals(1, r.getTim().getIDProjekta().getIDProjekta());
+        assertEquals(8, r.getTim().getBrojClanova());
+        assertEquals("PR", r.getTim().getNazivTima());
         assertEquals("BDW", r.getTim().getIDProjekta().getNazivProjekta());
         assertEquals("dizajn", r.getTim().getIDProjekta().getVrstaProjekta());
         assertEquals(datumP, r.getTim().getIDProjekta().getDatumPocetka());

@@ -13,8 +13,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-
-
 /**
  *
  * @author Ivana
@@ -33,7 +31,7 @@ public class Clan extends AbstractDomainObject {
     private String password;
     private List<StatistikaZadatka> statistikaZad;
 
-     public Clan(int IDClana, String Ime, String Prezime, int GodStudija, Pozicija pozicija, Tim tim, String Fakultet) {
+    public Clan(int IDClana, String Ime, String Prezime, int GodStudija, Pozicija pozicija, Tim tim, String Fakultet) {
         this.IDClana = IDClana;
         this.Ime = Ime;
         this.Prezime = Prezime;
@@ -42,11 +40,9 @@ public class Clan extends AbstractDomainObject {
         this.tim = tim;
         this.Fakultet = Fakultet;
     }
-    
+
     public Clan() {
     }
-
-   
 
     @Override
     public int hashCode() {
@@ -116,6 +112,16 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setFakultet(String Fakultet) {
+        if (Fakultet == null) {
+            throw new NullPointerException("Fakultet ne sme biti null");
+        }
+        if (Fakultet.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Fakultet ne sme imati brojeve");
+        }
+
+        if (Character.isLowerCase(Fakultet.charAt(0))) {
+            throw new IllegalArgumentException("Fakultet ne sme imati malo pocetno slovo");
+        }
         this.Fakultet = Fakultet;
     }
 
@@ -124,6 +130,16 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setIme(String Ime) {
+        if (Ime == null) {
+            throw new NullPointerException("Ime ne sme biti null");
+        }
+        if (Ime.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Ime ne sme imati brojeve");
+        }
+
+        if (Character.isLowerCase(Ime.charAt(0))) {
+            throw new IllegalArgumentException("Ime ne sme imati malo pocetno slovo");
+        }
         this.Ime = Ime;
     }
 
@@ -148,6 +164,16 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setPrezime(String Prezime) {
+        if (Prezime == null) {
+            throw new NullPointerException("Prezime ne sme biti null");
+        }
+        if (Prezime.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Prezime ne sme imati brojeve");
+        }
+
+        if (Character.isLowerCase(Prezime.charAt(0))) {
+            throw new IllegalArgumentException("Prezime ne sme imati malo pocetno slovo");
+        }
         this.Prezime = Prezime;
     }
 
@@ -156,6 +182,9 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setGodStudija(int GodStudija) {
+        if (GodStudija < 1 || GodStudija > 4) {
+            throw new IllegalArgumentException("Godina studija mora biti izmedju 1 i 4");
+        }
         this.GodStudija = GodStudija;
     }
 
@@ -164,6 +193,10 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setPozicija(Pozicija pozicija) {
+        if (pozicija == null) {
+            throw new NullPointerException("Pozicija ne sme biti null");
+        }
+
         this.pozicija = pozicija;
     }
 
@@ -172,6 +205,9 @@ public class Clan extends AbstractDomainObject {
     }
 
     public void setTim(Tim tim) {
+        if (tim == null) {
+            throw new NullPointerException("Tim ne sme biti null");
+        }
         this.tim = tim;
     }
 
@@ -196,15 +232,15 @@ public class Clan extends AbstractDomainObject {
     @Override
     public String join() {
         return " JOIN TIM t ON (c.IDTima = t.IDTima) "
-                + "JOIN POZICIJA P ON (P.IDPozicije = c.IDPozicije) "+
-                "JOIN projekat pr ON (t.IDProjekta= pr.IDProjekta) ";
+                + "JOIN POZICIJA P ON (P.IDPozicije = c.IDPozicije) "
+                + "JOIN projekat pr ON (t.IDProjekta= pr.IDProjekta) ";
 
     }
 
     @Override
     public ArrayList<AbstractDomainObject> vratiListu(ResultSet rs) throws SQLException {
         ArrayList<AbstractDomainObject> lista = new ArrayList<>();
-       
+
         while (rs.next()) {
             Date sqlDatumPocetka = rs.getDate("pr.DatumPocetka");
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -214,28 +250,23 @@ public class Clan extends AbstractDomainObject {
 
             Date sqlDatumZavrsetka = rs.getDate("pr.DatumZavrsetka");
             SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDatumZavrsetka= formatter3.format(sqlDatumZavrsetka);
+            String formattedDatumZavrsetka = formatter3.format(sqlDatumZavrsetka);
             LocalDate localDatumZavrsetka = LocalDate.parse(formattedDatumZavrsetka);
-            
-             Projekat pr = new Projekat(rs.getInt("IDProjekta"),
-                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"),localDatumPocetka,localDatumZavrsetka);
+
+            Projekat pr = new Projekat(rs.getInt("IDProjekta"),
+                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"), localDatumPocetka, localDatumZavrsetka);
             Tim t = new Tim(rs.getInt("IDTima"),
                     rs.getString("nazivTima"), rs.getInt("brojClanova"),
                     pr);
             Pozicija p = new Pozicija(rs.getInt("IDPozicije"),
                     rs.getString("nazivPozicije"));
-         
-           
-         
-          
-            
+
             Clan c = new Clan(rs.getInt("c.IDClana"), rs.getString("Ime"),
                     rs.getString("Prezime"), rs.getInt("GodStudija"), p, t,
                     rs.getString("Fakultet"));
 
             c.setUsername(rs.getString("username"));
-             c.setPassword(rs.getString("password"));
-            
+            c.setPassword(rs.getString("password"));
 
             lista.add(c);
         }
@@ -307,18 +338,16 @@ public class Clan extends AbstractDomainObject {
 
             Date sqlDatumZavrsetka = rs.getDate("p.DatumZavrsetka");
             SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDatumZavrsetka= formatter3.format(sqlDatumZavrsetka);
+            String formattedDatumZavrsetka = formatter3.format(sqlDatumZavrsetka);
             LocalDate localDatumZavrsetka = LocalDate.parse(formattedDatumZavrsetka);
-            
-             Projekat pr = new Projekat(rs.getInt("IDProjekta"),
-                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"),localDatumPocetka,localDatumZavrsetka);
+
+            Projekat pr = new Projekat(rs.getInt("IDProjekta"),
+                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"), localDatumPocetka, localDatumZavrsetka);
             Tim t = new Tim(rs.getInt("IDTima"),
                     rs.getString("nazivTima"), rs.getInt("brojClanova"),
                     pr);
             Pozicija p = new Pozicija(rs.getInt("IDPozicije"),
                     rs.getString("nazivPozicije"));
-            
-            
 
             c = new Clan(rs.getInt("IDClana"), rs.getString("Ime"),
                     rs.getString("Prezime"), rs.getInt("GodStudija"), p, t,
@@ -327,7 +356,6 @@ public class Clan extends AbstractDomainObject {
             c.setUsername(rs.getString("username"));
 
             c.setPassword(rs.getString("password"));
-            
 
         }
 
