@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-
-
 /**
  *
  * @author Ivana
@@ -33,15 +31,14 @@ public class Tim extends AbstractDomainObject {
     Moodovi moodTabele;
     private String parametarZaPretragu;
 
-  
-  
-   public Moodovi getMoodTabele() {
+    public Moodovi getMoodTabele() {
         return moodTabele;
     }
 
     public void setMoodTabele(Moodovi moodTabele) {
         this.moodTabele = moodTabele;
     }
+
     @Override
     public String toString() {
         return nazivTima + "-" + projekat.getNazivProjekta();
@@ -117,7 +114,7 @@ public class Tim extends AbstractDomainObject {
         this.nazivTima = nazivTima;
         this.brojClanova = brojClanova;
         this.projekat = IDProjekta;
-       
+
     }
 
     public void setPozicije(List<Pozicija> pozicije) {
@@ -129,7 +126,19 @@ public class Tim extends AbstractDomainObject {
     }
 
     public void setNazivTima(String nazivTima) {
+        if (nazivTima == null) {
+            throw new NullPointerException("Naziv tima ne sme biti null");
+        }
+        if (nazivTima.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Naziv tima ne sme imati brojeve");
+
+        }
+
+        if (Character.isLowerCase(nazivTima.charAt(0))) {
+            throw new IllegalArgumentException("Naziv tima ne sme imati malo pocetno slovo");
+        }
         this.nazivTima = nazivTima;
+
     }
 
     public int getBrojClanova() {
@@ -137,18 +146,24 @@ public class Tim extends AbstractDomainObject {
     }
 
     public void setBrojClanova(int brojClanova) {
+        if (brojClanova < 0) {
+            throw new IllegalArgumentException("Broj clanova ne sme biti negativan");
+        }
         this.brojClanova = brojClanova;
     }
 
     public Projekat getIDProjekta() {
+
         return projekat;
     }
 
     public void setIDProjekta(Projekat IDProjekta) {
+        if (IDProjekta == null) {
+            throw new NullPointerException("Projekat ne sme biti null");
+
+        }
         this.projekat = IDProjekta;
     }
-
-   
 
     public int getIDTima() {
         return IDTima;
@@ -171,8 +186,8 @@ public class Tim extends AbstractDomainObject {
     @Override
     public String join() {
         return " JOIN detalji_pozicije dp ON (dp.IDTima = t.IDTima) "
-                + "JOIN POZICIJA P ON (P.IDPozicije = dp.idPozicije) "+
-                "JOIN projekat pr ON (t.IDProjekta= pr.IDProjekta) ";
+                + "JOIN POZICIJA P ON (P.IDPozicije = dp.idPozicije) "
+                + "JOIN projekat pr ON (t.IDProjekta= pr.IDProjekta) ";
     }
 
     @Override
@@ -188,14 +203,14 @@ public class Tim extends AbstractDomainObject {
 
             Date sqlDatumZavrsetka = rs.getDate("pr.DatumZavrsetka");
             SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDatumZavrsetka= formatter3.format(sqlDatumZavrsetka);
+            String formattedDatumZavrsetka = formatter3.format(sqlDatumZavrsetka);
             LocalDate localDatumZavrsetka = LocalDate.parse(formattedDatumZavrsetka);
-            
-             Projekat pr = new Projekat(rs.getInt("IDProjekta"),
-                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"),localDatumPocetka,localDatumZavrsetka);
-            
+
+            Projekat pr = new Projekat(rs.getInt("IDProjekta"),
+                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"), localDatumPocetka, localDatumZavrsetka);
+
             Tim t = new Tim(rs.getInt("t.IDTima"),
-                    rs.getString("nazivTima"), rs.getInt("brojClanova"),pr);
+                    rs.getString("nazivTima"), rs.getInt("brojClanova"), pr);
 
             Pozicija p = new Pozicija(rs.getInt("IDPozicije"),
                     rs.getString("nazivPozicije"));
@@ -208,8 +223,7 @@ public class Tim extends AbstractDomainObject {
 
             detaljiPoTimu.get(t.getIDTima()).add(dp);
             List<DetaljiPozicija> detaljiZaTim = detaljiPoTimu.get(t.getIDTima());
-            
-                    
+
             t.setBrojPozicija(detaljiZaTim);
             lista.add(t);
 
@@ -227,7 +241,7 @@ public class Tim extends AbstractDomainObject {
     @Override
     public String vrednostiZaInsert() {
         return "'" + nazivTima + "', " + brojClanova + " , "
-                + projekat.getIDProjekta()+ " ";
+                + projekat.getIDProjekta() + " ";
     }
 
     @Override
@@ -237,7 +251,7 @@ public class Tim extends AbstractDomainObject {
 
     @Override
     public String vrednostiZaUpdate() {
-        return " nazivTima = '" + nazivTima + "', IDProjekta = " + projekat.getIDProjekta()+ " "
+        return " nazivTima = '" + nazivTima + "', IDProjekta = " + projekat.getIDProjekta() + " "
                 + "brojClanova = " + brojClanova + " ";
     }
 
@@ -257,9 +271,9 @@ public class Tim extends AbstractDomainObject {
     @Override
     public AbstractDomainObject vratiObjekat(ResultSet rs) throws SQLException {
         Tim t = new Tim();
-          Map<Integer, List<DetaljiPozicija>> detaljiPoTimu = new HashMap<>();
+        Map<Integer, List<DetaljiPozicija>> detaljiPoTimu = new HashMap<>();
         while (rs.next()) {
-             Date sqlDatumPocetka = rs.getDate("pr.DatumPocetka");
+            Date sqlDatumPocetka = rs.getDate("pr.DatumPocetka");
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String formattedDatumPocetka = formatter.format(sqlDatumPocetka);
 
@@ -267,11 +281,11 @@ public class Tim extends AbstractDomainObject {
 
             Date sqlDatumZavrsetka = rs.getDate("pr.DatumZavrsetka");
             SimpleDateFormat formatter3 = new SimpleDateFormat("yyyy-MM-dd");
-            String formattedDatumZavrsetka= formatter3.format(sqlDatumZavrsetka);
+            String formattedDatumZavrsetka = formatter3.format(sqlDatumZavrsetka);
             LocalDate localDatumZavrsetka = LocalDate.parse(formattedDatumZavrsetka);
-            
-             Projekat pr = new Projekat(rs.getInt("IDProjekta"),
-                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"),localDatumPocetka,localDatumZavrsetka);
+
+            Projekat pr = new Projekat(rs.getInt("IDProjekta"),
+                    rs.getString("NazivProjekta"), rs.getString("VrstaProjekta"), localDatumPocetka, localDatumZavrsetka);
             t = new Tim(rs.getInt("IDTima"),
                     rs.getString("nazivTima"), rs.getInt("brojClanova"),
                     pr);
@@ -286,10 +300,8 @@ public class Tim extends AbstractDomainObject {
 
             detaljiPoTimu.get(t.getIDTima()).add(dp);
             List<DetaljiPozicija> detaljiZaTim = detaljiPoTimu.get(t.getIDTima());
-            
-                    
+
             t.setBrojPozicija(detaljiZaTim);
-            
 
         }
 
@@ -299,7 +311,7 @@ public class Tim extends AbstractDomainObject {
 
     @Override
     public String uslovZaDelete() {
-       return " IDTima = " + IDTima;
+        return " IDTima = " + IDTima;
     }
 
 }

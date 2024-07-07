@@ -125,7 +125,7 @@ public class KonfiguracijaBaze extends javax.swing.JDialog {
             }
 
             Properties prop = new Properties();
-            FileOutputStream out = new FileOutputStream("dbconfig.properties");
+            FileOutputStream out = new FileOutputStream("src/main/resources/dbconfig.properties");
 
             prop.setProperty("url", "jdbc:mysql://localhost:3306/" + nazivBaze);
             prop.setProperty("username", username);
