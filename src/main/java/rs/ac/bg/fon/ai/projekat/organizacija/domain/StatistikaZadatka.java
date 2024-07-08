@@ -35,6 +35,7 @@ public class StatistikaZadatka extends AbstractDomainObject {
         this.datumDodele = datumDodele;
         this.KrajnjiRok = KrajnjiRok;
     }
+    
 
     public StatistikaZadatka() {
     }
@@ -44,6 +45,9 @@ public class StatistikaZadatka extends AbstractDomainObject {
     }
 
     public void setClan(Clan clan) {
+        if(clan==null){
+            throw new NullPointerException("Clan ne sme biti null");
+        }
         this.clan = clan;
     }
 
@@ -52,14 +56,19 @@ public class StatistikaZadatka extends AbstractDomainObject {
     }
 
     public void setZaClana(String zaClana) {
+        
         this.zaClana = zaClana;
     }
 
     public Zadatak getZadatak() {
+       
         return zadatak;
     }
 
     public void setZadatak(Zadatak zadatak) {
+        if(zadatak==null){
+            throw new NullPointerException("Naziv zadatka ne sme biti null");
+        }
         this.zadatak = zadatak;
     }
 
@@ -68,6 +77,9 @@ public class StatistikaZadatka extends AbstractDomainObject {
     }
 
     public void setFazaZadatka(FazaZadatka FazaZadatka) {
+        if(FazaZadatka==null){
+            throw new NullPointerException("Faza  zadatka ne sme biti null");
+        }
         this.FazaZadatka = FazaZadatka;
     }
 
@@ -76,6 +88,9 @@ public class StatistikaZadatka extends AbstractDomainObject {
     }
 
     public void setDatumDodele(LocalDate datumDodele) {
+         if(datumDodele==null){
+            throw new NullPointerException("Datum dodele ne sme biti null");
+        }
         this.datumDodele = datumDodele;
     }
 
@@ -84,6 +99,12 @@ public class StatistikaZadatka extends AbstractDomainObject {
     }
 
     public void setKrajnjiRok(LocalDate KrajnjiRok) {
+         if(KrajnjiRok==null){
+            throw new NullPointerException("Krajnji Rok ne sme biti null");
+        }
+         if(KrajnjiRok.isBefore(LocalDate.now())){
+           throw new IllegalArgumentException("Datum ne sme biti u proslosti");
+        }
         this.KrajnjiRok = KrajnjiRok;
     }
 
@@ -123,6 +144,11 @@ public class StatistikaZadatka extends AbstractDomainObject {
             return false;
         }
         return Objects.equals(this.KrajnjiRok, other.KrajnjiRok);
+    }
+
+    @Override
+    public String toString() {
+        return clan+" "+zadatak+" "+FazaZadatka;
     }
 
     @Override

@@ -236,6 +236,7 @@ public class ClanTest {
         assertEquals("dizajn", c.getTim().getIDProjekta().getVrstaProjekta());
         assertEquals(datumP, c.getTim().getIDProjekta().getDatumPocetka());
         assertEquals(datumZ, c.getTim().getIDProjekta().getDatumZavrsetka());
+        
     }
     
     @Test

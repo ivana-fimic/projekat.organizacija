@@ -13,6 +13,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
@@ -160,6 +162,45 @@ public class DetaljiPozicijaTest {
     @Test
     void testEqualsObjectDrugaKlasa() {
         assertFalse(dp.equals(new Zadatak()));
+    }
+    
+     @ParameterizedTest
+    @CsvSource({
+        "Koordinator, PR, BDW, Koordinator, PR, BDW, true",
+        "Koordinator, PR, BDW, Clan , PR, BDW, false",
+        "Koordinator, PR, BDW, Koordinator, FR, BDW, false",
+        "Koordinator, PR, BDW , Koordinator, PR, AIBG, false",
+        "Koordinator, PR, BDW , Clan, PR, AIBG, false",
+        "Koordinator, PR, BDW , Koordinator, FR, AIBG, false",
+        "Koordinator, PR, BDW, Clan, FR, BDW, false",
+        "Koordinator, PR, BDW, Clan, FR, AIBG, false",
+
+      
+    })
+
+    void testEqualsObjectSveOk(String pozicija, String nazivTima, String nazivProjekta,
+            String pozicija1, String nazivTima1, String nazivProjekta1,
+            boolean eq) {
+
+        dp.setPozicija(new Pozicija());
+        dp.getPozicija().setNazivPozicije(pozicija);
+        dp.setTim(new Tim());
+        dp.getTim().setNazivTima(nazivTima);
+        dp.getTim().setIDProjekta(new Projekat());
+        dp.getTim().getIDProjekta().setNazivProjekta(nazivProjekta);
+        
+        DetaljiPozicija dp2=new DetaljiPozicija();
+        dp2.setPozicija(new Pozicija());
+        dp2.getPozicija().setNazivPozicije(pozicija1);
+        dp2.setTim(new Tim());
+        dp2.getTim().setNazivTima(nazivTima1);
+        dp2.getTim().setIDProjekta(new Projekat());
+        dp2.getTim().getIDProjekta().setNazivProjekta(nazivProjekta1);
+        
+       
+
+        assertEquals(eq, dp.equals(dp2));
+
     }
 
 }

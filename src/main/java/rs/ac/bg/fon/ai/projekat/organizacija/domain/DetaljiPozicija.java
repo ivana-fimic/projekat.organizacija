@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -70,6 +71,33 @@ public class DetaljiPozicija extends AbstractDomainObject {
     @Override
     public String toString() {
         return tim.getNazivTima()+" "+pozicija.getNazivPozicije()+" "+brojPozicija;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DetaljiPozicija other = (DetaljiPozicija) obj;
+        if (this.brojPozicija != other.brojPozicija) {
+            return false;
+        }
+        if (!Objects.equals(this.tim, other.tim)) {
+            return false;
+        }
+        return Objects.equals(this.pozicija, other.pozicija);
     }
     
 

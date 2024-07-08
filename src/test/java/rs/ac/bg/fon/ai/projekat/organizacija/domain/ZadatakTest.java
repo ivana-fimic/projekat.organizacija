@@ -134,7 +134,7 @@ public class ZadatakTest {
 
         z.setTim(new Tim(1, "PR", 8, new Projekat(1, "BDW", "dizajn", datumP, datumZ)));
         assertEquals(1, z.getTim().getIDTima());
-         assertEquals(8, z.getTim().getBrojClanova());
+        assertEquals(8, z.getTim().getBrojClanova());
         assertEquals("PR", z.getTim().getNazivTima());
         assertEquals(1, z.getTim().getIDProjekta().getIDProjekta());
         assertEquals("BDW", z.getTim().getIDProjekta().getNazivProjekta());
