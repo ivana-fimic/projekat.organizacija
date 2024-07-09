@@ -10,50 +10,94 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- *
- * @author Ivana
+ * Predstavlja poziciju unutar tima sa IDPozicije i nazivom
+ * 
+ * @autor Ivana
  */
-public class Pozicija  extends AbstractDomainObject{
+public class Pozicija extends AbstractDomainObject {
+
+    /**
+     * ID pozicije tipa int.
+     */
     private int IDPozicije;
+
+    /**
+     * Naziv pozicije tipa String.
+     */
     private String nazivPozicije;
 
+    /**
+     * Pravi nov objekat klase Pozicija sa zadatim vrednostima.
+     * 
+     * @param IDPozicije ID pozicije kao int
+     * @param nazivPozicije naziv pozicije kao String
+     */
     public Pozicija(int IDPozicije, String nazivPozicije) {
         this.IDPozicije = IDPozicije;
         this.nazivPozicije = nazivPozicije;
     }
 
+    /**
+     * Pravi nov objekat klase Pozicija.
+     * 
+     * Polja ostaju neinicijalizovana.
+     */
     public Pozicija() {
     }
 
+    /**
+     * Vraca ID pozicije.
+     * 
+     * @return ID pozicije kao int
+     */
     public int getIDPozicije() {
         return IDPozicije;
     }
 
+    /**
+     * Postavlja ID pozicije na unetu vrednost.
+     * 
+     * @param IDPozicije ID pozicije kao int
+     */
     public void setIDPozicije(int IDPozicije) {
         this.IDPozicije = IDPozicije;
     }
 
+    /**
+     * Vraca naziv pozicije.
+     * 
+     * @return naziv pozicije kao String
+     */
     public String getNazivPozicije() {
         return nazivPozicije;
     }
 
+    /**
+     * Postavlja naziv pozicije na unetu vrednost.
+     * 
+     * Uneti naziv ne sme biti null i ne sme biti prazan string.
+     * 
+     * @param nazivPozicije naziv pozicije kao String
+     * 
+     * @throws java.lang.NullPointerException ako je uneti naziv null
+     * @throws java.lang.IllegalArgumentException ako je uneti naziv prazan string
+     */
     public void setNazivPozicije(String nazivPozicije) {
         if (nazivPozicije == null) {
             throw new NullPointerException("Naziv pozicije ne sme biti null");
         }
-        if (nazivPozicije == "") {
+        if (nazivPozicije.isEmpty()) {
             throw new IllegalArgumentException("Naziv pozicije ne sme biti prazan");
-
         }
         this.nazivPozicije = nazivPozicije;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
-
+    /**
+     * Proverava da li su dva objekta jednaka prema nazivu pozicije.
+     * 
+     * @param obj objekat sa kojim se poredi
+     * @return true ako oba objekta imaju isti naziv pozicije, false u suprotnom
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -66,19 +110,8 @@ public class Pozicija  extends AbstractDomainObject{
             return false;
         }
         final Pozicija other = (Pozicija) obj;
-        if (this.IDPozicije != other.IDPozicije) {
-            return false;
-        }
         return Objects.equals(this.nazivPozicije, other.nazivPozicije);
     }
-
-    @Override
-    public String toString() {
-        return nazivPozicije;
-    }
-    
-    
-
 
     @Override
     public String nazivTabele() {
@@ -141,10 +174,6 @@ public class Pozicija  extends AbstractDomainObject{
     public void setAutoIncrementPrimaryKey(int generatedKey) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-    
-
-   
 
     @Override
     public AbstractDomainObject vratiObjekat(ResultSet rs) throws SQLException {
