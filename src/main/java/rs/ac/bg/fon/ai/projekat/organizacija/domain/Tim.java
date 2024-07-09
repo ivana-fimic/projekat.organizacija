@@ -17,9 +17,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Klasa Tim koja sadrzi IDTima, nazivTima, brojClanova, projekat 
- * Predstavlja tim unutar studentske organizacije koji je sastavljen od clanova klase Clan i
- * pozicija klase Pozicija unutar kog se rade zadaci klase Zadatak i prati se na kom projektu radi tim
+ * 
+ * Predstavlja tim unutar studentske organizacije koji je sastavljen od pozicija klase Pozicija unutar koga se pamte detalji pozicija,
+ *  i prati se na kom projektu radi tim
  *
  * @author Ivana
  */

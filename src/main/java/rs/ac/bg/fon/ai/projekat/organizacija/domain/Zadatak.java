@@ -20,56 +20,198 @@ import java.util.Objects;
 
 
 /**
- *
+ * 
+ *Predstavlja Zadatak koji je dodeljen timu i clanu unutar tima za koga se beleze statistike
  * @author Ivana
  */
 public class Zadatak extends AbstractDomainObject {
 
+    /**
+     * ID zadatka kao int
+     */
     private int IDZadatka;
+     /**
+     * Naziv zadatka kao int
+     */
     private String NazivZadatka;
+     /**
+     * Tim kojem je dodeljen zadatak.
+     */
     private Tim tim;
+    /**
+     * Lista statistika za zadatak.
+     */
     private List<StatistikaZadatka> statistika;
+    /**
+     * Pomocna promenljiva za parametar pretrage na formi
+     */
     private String parametarZaPretragu;
+    /**
+     * Pomocna promenljiva za parametar pretrage na formi
+     */
     private Moodovi moodTabele;
-
+    /**
+     * Pravi nov objekat klase Zadatak sa zadatim vrednostima.
+     * 
+     * @param IDZadatka ID zadatka kao int
+     * @param NazivZadatka naziv zadatka kao String
+     * @param tim tim kojem je zadatak dodeljen kao Tim
+     */
     public Zadatak(int IDZadatka, String NazivZadatka, Tim tim) {
         this.IDZadatka = IDZadatka;
         this.NazivZadatka = NazivZadatka;
         this.tim = tim;
     }
-
+     /**
+     * Pravi nov objekat klase Zadatak.
+     * 
+     * Polja ostaju neinicijalizovana.
+     */
     public Zadatak() {
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.IDZadatka;
-        hash = 97 * hash + Objects.hashCode(this.NazivZadatka);
-        hash = 97 * hash + Objects.hashCode(this.tim);
-        return hash;
+    /**
+     * Vraca ID zadatka.
+     * 
+     * @return ID zadatka kao int
+     */
+     public int getIDZadatka() {
+        return IDZadatka;
     }
+    
+      /**
+     * Postavlja ID zadatka na unetu vrednost.
+     * 
+     * @param IDZadatka ID zadatka kao int
+     */
+    public void setIDZadatka(int IDZadatka) {
+        this.IDZadatka = IDZadatka;
+    }
+     /**
+     * Vraca naziv zadatka.
+     * 
+     * @return naziv zadatka kao String
+     */
+     public String getNazivZadatka() {
+        return NazivZadatka;
+    }
+ /**
+     * Postavlja naziv zadatka na unetu vrednost.
+     * 
+     * Uneti naziv ne sme biti null i ne sme sadržati brojeve.
+     * 
+     * @param NazivZadatka naziv zadatka kao String
+     * 
+     * @throws java.lang.NullPointerException 
+     * ako je uneti naziv null
+     * @throws java.lang.IllegalArgumentException
+     *  ako uneti naziv sadrži brojeve
+     */
+    public void setNazivZadatka(String NazivZadatka) {
+        if(NazivZadatka==null){
+            throw new NullPointerException("Naziv zadatka ne sme biti null");
+        }
+            
+        
+        if (NazivZadatka.matches(".*\\d+.*")) {
+            throw new IllegalArgumentException("Naziv zadatka ne sme imati brojeve");
+
+        }
+        this.NazivZadatka = NazivZadatka;
+    }
+     /**
+     * Vraca tim kojem je zadatak dodeljen.
+     * 
+     * @return tim kao Tim
+     */
+
+    public Tim getTim() {
+        return tim;
+    }
+/**
+     * Postavlja tim kojem je zadatak dodeljen na unetu vrednost.
+     * 
+     * Uneti tim ne sme biti null.
+     * 
+     * @param tim tim kao Tim
+     * 
+     * @throws java.lang.NullPointerException 
+     * ako je uneti tim null
+     */
+    public void setTim(Tim tim) {
+        if(tim==null){
+            throw new NullPointerException("Tim ne sme biti null");
+        }
+        this.tim = tim;
+    }
+     /**
+     * Vraca listu statistika zadatka.
+     * 
+     * @return lista statistika kao List<StatistikaZadatka>
+     */
+      public List<StatistikaZadatka> getStatistika() {
+        return statistika;
+    }
+/**
+     * Postavlja listu statistika zadatka na unetu vrednost.
+     * 
+     * @param statistika lista statistika kao List<StatistikaZadatka>
+     */
+    public void setStatistika(List<StatistikaZadatka> statistika) {
+        this.statistika = statistika;
+    }
+    /**
+     * Vraca parametar za pretragu zadatka.
+     * 
+     * @return parametar za pretragu kao String
+     */
 
     public String getParametarZaPretragu() {
         return parametarZaPretragu;
     }
-
+ /**
+     * Postavlja parametar za pretragu zadatka na unetu vrednost.
+     * 
+     * @param parametarZaPretragu parametar za pretragu kao String
+     */
     public void setParametarZaPretragu(String parametarZaPretragu) {
         this.parametarZaPretragu = parametarZaPretragu;
     }
-
+ /**
+     * Vraca trenutni mood tabele zadatka.
+     * 
+     * @return mood tabele kao Moodovi
+     */
     public Moodovi getMoodTabele() {
         return moodTabele;
     }
-
+ /**
+     * Postavlja mood tabele zadatka na unetu vrednost.
+     * 
+     * @param moodTabele mood tabele kao Moodovi
+     */
     public void setMoodTabele(Moodovi moodTabele) {
         this.moodTabele = moodTabele;
     }
-
+ /**
+     * Vraća string reprezentaciju objekta Zadatak.
+     * 
+     * @return naziv zadatka kao String
+     */
     @Override
     public String toString() {
         return NazivZadatka  ;
     }
+    /**
+     * Poredi dva zadatka prema nazivu.
+     * 
+     * @param obj Drugi zadatak sa kojim se poredi
+     * 
+     * @return 
+     * true -  ako su oba objekta inicijalizovana, klase su Zadatak
+     * i imaju isti naziv 
+     * false - ako nisu klase Zadatak, ako je uneti zadatak null ili ako
+     * nije isti naziv 
+     */
 
     @Override
     public boolean equals(Object obj) {
@@ -83,57 +225,7 @@ public class Zadatak extends AbstractDomainObject {
             return false;
         }
         final Zadatak other = (Zadatak) obj;
-        if (this.IDZadatka != other.IDZadatka) {
-            return false;
-        }
-        if (!Objects.equals(this.NazivZadatka, other.NazivZadatka)) {
-            return false;
-        }
-        return Objects.equals(this.tim, other.tim);
-    }
-
-    public int getIDZadatka() {
-        return IDZadatka;
-    }
-
-    public void setIDZadatka(int IDZadatka) {
-        this.IDZadatka = IDZadatka;
-    }
-
-    public List<StatistikaZadatka> getStatistika() {
-        return statistika;
-    }
-
-    public void setStatistika(List<StatistikaZadatka> statistika) {
-        this.statistika = statistika;
-    }
-
-    public String getNazivZadatka() {
-        return NazivZadatka;
-    }
-
-    public void setNazivZadatka(String NazivZadatka) {
-        if(NazivZadatka==null){
-            throw new NullPointerException("Naziv zadatka ne sme biti null");
-        }
-            
-        
-        if (NazivZadatka.matches(".*\\d+.*")) {
-            throw new IllegalArgumentException("Naziv zadatka ne sme imati brojeve");
-
-        }
-        this.NazivZadatka = NazivZadatka;
-    }
-
-    public Tim getTim() {
-        return tim;
-    }
-
-    public void setTim(Tim tim) {
-        if(tim==null){
-            throw new NullPointerException("Tim ne sme biti null");
-        }
-        this.tim = tim;
+        return Objects.equals(this.NazivZadatka, other.NazivZadatka);
     }
 
     @Override
