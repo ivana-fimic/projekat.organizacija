@@ -13,16 +13,40 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- *
+ * Predstavlja resurs koji se koristi u okviru tima za izvršavanje zadatka.
+ * 
  * @author Ivana
  */
 public class Resurs extends AbstractDomainObject {
 
+    /**
+     * Identifikacioni broj resursa.
+     */
     private int IDResursa;
+
+    /**
+     * Naziv resursa kao int.
+     */
     private String nazivResursa;
+
+    /**
+     * Količina resursa kao String.
+     */
     private int kolicina;
+
+    /**
+     * Tim koji koristi resurs.
+     */
     private Tim tim;
 
+    /**
+     * Pravi novi objekat klase Resurs sa zadatim vrednostima.
+     * 
+     * @param IDResursa identifikacioni broj resursa kao int
+     * @param nazivResursa naziv resursa kao String
+     * @param kolicina količina resursa kao int
+     * @param tim tim koji koristi resurs kao Tim
+     */
     public Resurs(int IDResursa, String nazivResursa, int kolicina, Tim tim) {
         this.IDResursa = IDResursa;
         this.nazivResursa = nazivResursa;
@@ -30,36 +54,77 @@ public class Resurs extends AbstractDomainObject {
         this.tim = tim;
     }
 
-    public Resurs() {
-    }
+    /**
+     * Pravi novi objekat klase Resurs.
+     * 
+     * Polja ostaju neinicijalizovana.
+     */
+    public Resurs() {}
 
+    /**
+     * Vraća identifikacioni broj resursa.
+     * 
+     * @return identifikacioni broj resursa kao int
+     */
     public int getIDResursa() {
         return IDResursa;
     }
 
+    /**
+     * Postavlja identifikacioni broj resursa na unetu vrednost.
+     * 
+     * @param IDResursa identifikacioni broj resursa kao int
+     */
     public void setIDResursa(int IDResursa) {
         this.IDResursa = IDResursa;
     }
 
+    /**
+     * Vraća naziv resursa.
+     * 
+     * @return naziv resursa kao String
+     */
     public String getNazivResursa() {
         return nazivResursa;
     }
 
+    /**
+     * Postavlja naziv resursa na unetu vrednost.
+     * 
+     * @param nazivResursa naziv resursa kao String
+     * 
+     * @throws java.lang.NullPointerException 
+     * ako je uneti naziv resursa null
+     * @throws java.lang.IllegalArgumentException
+     * ako je uneti naziv resursa prazan
+     */
     public void setNazivResursa(String nazivResursa) {
         if (nazivResursa == null) {
             throw new NullPointerException("Naziv resursa ne sme biti null");
         }
-        if (nazivResursa == "") {
+        if (nazivResursa.isEmpty()) {
             throw new IllegalArgumentException("Naziv resursa ne sme biti prazan");
-
         }
         this.nazivResursa = nazivResursa;
     }
 
+    /**
+     * Vraća količinu resursa.
+     * 
+     * @return količina resursa kao int
+     */
     public int getKolicina() {
         return kolicina;
     }
 
+    /**
+     * Postavlja količinu resursa na unetu vrednost.
+     * 
+     * @param kolicina količina resursa kao int
+     * 
+     * @throws java.lang.IllegalArgumentException 
+     * ako je uneta količina resursa manja od nule
+     */
     public void setKolicina(int kolicina) {
         if (kolicina < 0) {
             throw new IllegalArgumentException("Kolicina ne sme biti negativna");
@@ -67,10 +132,23 @@ public class Resurs extends AbstractDomainObject {
         this.kolicina = kolicina;
     }
 
+    /**
+     * Vraća tim koji koristi resurs.
+     * 
+     * @return tim koji koristi resurs kao Tim
+     */
     public Tim getTim() {
         return tim;
     }
 
+    /**
+     * Postavlja tim koji koristi resurs na unetu vrednost.
+     * 
+     * @param tim tim koji koristi resurs kao Tim
+     * 
+     * @throws java.lang.NullPointerException 
+     * ako je uneti tim null
+     */
     public void setTim(Tim tim) {
         if (tim == null) {
             throw new NullPointerException("Tim ne sme biti null");
@@ -78,17 +156,28 @@ public class Resurs extends AbstractDomainObject {
         this.tim = tim;
     }
 
+    /**
+     * Generiše string reprezentaciju objekta Resurs.
+     * 
+     * @return  naziv resursa kao String
+     */
     @Override
     public String toString() {
         return nazivResursa;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
-
+    /**
+     * Poređenje dva objekta Resurs prema nazivu resursa.
+     * 
+     * @param obj Drugi objekat sa kojim se poredi
+     * 
+     * @return 
+     * true-  ako su oba objekta inicijalizovana, klase su Resurs
+     * i imaju iste vrednosti za naziv resursa 
+     * false - ako nisu klase Resurs, ako je uneti resurs null ili ako
+     * nije ista vrednost za naziv resursa 
+     * 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -101,17 +190,9 @@ public class Resurs extends AbstractDomainObject {
             return false;
         }
         final Resurs other = (Resurs) obj;
-        if (this.IDResursa != other.IDResursa) {
-            return false;
-        }
-        if (this.kolicina != other.kolicina) {
-            return false;
-        }
-        if (!Objects.equals(this.nazivResursa, other.nazivResursa)) {
-            return false;
-        }
-        return Objects.equals(this.tim, other.tim);
+        return Objects.equals(this.nazivResursa, other.nazivResursa);
     }
+  
 
     @Override
     public String nazivTabele() {
