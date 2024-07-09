@@ -64,11 +64,11 @@ public class DetaljiPozicijaTest {
         assertEquals(1, dp.getTim().getIDTima());
         assertEquals("PR", dp.getTim().getNazivTima());
         assertEquals(8, dp.getTim().getBrojClanova());
-        assertEquals(1, dp.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", dp.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", dp.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, dp.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, dp.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, dp.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", dp.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", dp.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, dp.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, dp.getTim().getProjekat().getDatumZavrsetka());
 
     }
 
@@ -84,11 +84,11 @@ public class DetaljiPozicijaTest {
         assertEquals(1, dp.getTim().getIDTima());
         assertEquals(8, dp.getTim().getBrojClanova());
         assertEquals("PR", dp.getTim().getNazivTima());
-        assertEquals(1, dp.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", dp.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", dp.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, dp.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, dp.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, dp.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", dp.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", dp.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, dp.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, dp.getTim().getProjekat().getDatumZavrsetka());
     }
 
     @Test
@@ -186,16 +186,16 @@ public class DetaljiPozicijaTest {
         dp.getPozicija().setNazivPozicije(pozicija);
         dp.setTim(new Tim());
         dp.getTim().setNazivTima(nazivTima);
-        dp.getTim().setIDProjekta(new Projekat());
-        dp.getTim().getIDProjekta().setNazivProjekta(nazivProjekta);
+        dp.getTim().setProjekat(new Projekat());
+        dp.getTim().getProjekat().setNazivProjekta(nazivProjekta);
         
         DetaljiPozicija dp2=new DetaljiPozicija();
         dp2.setPozicija(new Pozicija());
         dp2.getPozicija().setNazivPozicije(pozicija1);
         dp2.setTim(new Tim());
         dp2.getTim().setNazivTima(nazivTima1);
-        dp2.getTim().setIDProjekta(new Projekat());
-        dp2.getTim().getIDProjekta().setNazivProjekta(nazivProjekta1);
+        dp2.getTim().setProjekat(new Projekat());
+        dp2.getTim().getProjekat().setNazivProjekta(nazivProjekta1);
         
        
 

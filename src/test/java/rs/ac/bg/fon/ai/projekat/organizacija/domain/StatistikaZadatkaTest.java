@@ -70,20 +70,20 @@ public class StatistikaZadatkaTest {
         assertEquals(1, st.getClan().getTim().getIDTima());
         assertEquals("PR", st.getClan().getTim().getNazivTima());
         assertEquals(8, st.getClan().getTim().getBrojClanova());
-        assertEquals(1, st.getClan().getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", st.getClan().getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", st.getClan().getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, st.getClan().getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, st.getClan().getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, st.getClan().getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", st.getClan().getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", st.getClan().getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, st.getClan().getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, st.getClan().getTim().getProjekat().getDatumZavrsetka());
 
         assertEquals(1, st.getZadatak().getIDZadatka());
         assertEquals("kreiranje objava", st.getZadatak().getNazivZadatka());
         assertEquals("PR", st.getZadatak().getTim().getNazivTima());
-        assertEquals(1, st.getZadatak().getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", st.getZadatak().getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", st.getZadatak().getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, st.getZadatak().getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, st.getZadatak().getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, st.getZadatak().getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", st.getZadatak().getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", st.getZadatak().getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, st.getZadatak().getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, st.getZadatak().getTim().getProjekat().getDatumZavrsetka());
 
         assertEquals(FazaZadatka.NEZAPOCETO, st.getFazaZadatka());
         assertEquals(datumP, st.getDatumDodele());
@@ -112,11 +112,11 @@ public class StatistikaZadatkaTest {
         assertEquals(1, st.getClan().getTim().getIDTima());
         assertEquals("PR", st.getClan().getTim().getNazivTima());
         assertEquals(8, st.getClan().getTim().getBrojClanova());
-        assertEquals(1, st.getClan().getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", st.getClan().getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", st.getClan().getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, st.getClan().getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, st.getClan().getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, st.getClan().getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", st.getClan().getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", st.getClan().getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, st.getClan().getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, st.getClan().getTim().getProjekat().getDatumZavrsetka());
 
     }
 
@@ -142,11 +142,11 @@ public class StatistikaZadatkaTest {
         assertEquals(1, st.getZadatak().getTim().getIDTima());
         assertEquals("PR", st.getZadatak().getTim().getNazivTima());
         assertEquals(8, st.getZadatak().getTim().getBrojClanova());
-        assertEquals(1, st.getZadatak().getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", st.getZadatak().getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", st.getZadatak().getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, st.getZadatak().getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, st.getZadatak().getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, st.getZadatak().getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", st.getZadatak().getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", st.getZadatak().getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, st.getZadatak().getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, st.getZadatak().getTim().getProjekat().getDatumZavrsetka());
 
     }
 

@@ -62,11 +62,11 @@ public class ZadatakTest {
         assertEquals(1, z.getTim().getIDTima());
         assertEquals("PR", z.getTim().getNazivTima());
         assertEquals(8, z.getTim().getBrojClanova());
-        assertEquals(1, z.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", z.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", z.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, z.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, z.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, z.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", z.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", z.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, z.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, z.getTim().getProjekat().getDatumZavrsetka());
 
     }
 
@@ -136,11 +136,11 @@ public class ZadatakTest {
         assertEquals(1, z.getTim().getIDTima());
         assertEquals(8, z.getTim().getBrojClanova());
         assertEquals("PR", z.getTim().getNazivTima());
-        assertEquals(1, z.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", z.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", z.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, z.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, z.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, z.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", z.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", z.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, z.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, z.getTim().getProjekat().getDatumZavrsetka());
 
     }
 

@@ -69,7 +69,7 @@ public class ModelTabeleClan extends AbstractTableModel implements Runnable {
             case 4:
                 return c.getFakultet();
             case 5:
-                return c.getTim().getNazivTima() + "-" + c.getTim().getIDProjekta().getNazivProjekta();
+                return c.getTim().getNazivTima() + "-" + c.getTim().getProjekat().getNazivProjekta();
             case 6:
                 return c.getPozicija().getNazivPozicije();
 

@@ -57,7 +57,7 @@ public class ModelTabeleZaIzmenuFazeZadatka extends AbstractTableModel {
         switch (columnIndex) {
 
             case 0:
-                return sz.getClan().getTim().getNazivTima() + "-" + sz.getClan().getTim().getIDProjekta().getNazivProjekta();
+                return sz.getClan().getTim().getNazivTima() + "-" + sz.getClan().getTim().getProjekat().getNazivProjekta();
             case 1:
                 return sz.getClan().getIme() + " " + sz.getClan().getPrezime();
             case 2:

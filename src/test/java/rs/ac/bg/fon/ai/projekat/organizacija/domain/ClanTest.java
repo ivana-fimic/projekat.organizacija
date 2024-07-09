@@ -72,11 +72,11 @@ public class ClanTest {
         assertEquals(1, c.getTim().getIDTima());
         assertEquals("PR", c.getTim().getNazivTima());
         assertEquals(8, c.getTim().getBrojClanova());
-        assertEquals(1, c.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", c.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", c.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, c.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, c.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, c.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", c.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", c.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, c.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, c.getTim().getProjekat().getDatumZavrsetka());
 
     }
 
@@ -231,11 +231,11 @@ public class ClanTest {
         assertEquals(1, c.getTim().getIDTima());
         assertEquals(8, c.getTim().getBrojClanova());
         assertEquals("PR", c.getTim().getNazivTima());
-        assertEquals(1, c.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", c.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", c.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, c.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, c.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, c.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", c.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", c.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, c.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, c.getTim().getProjekat().getDatumZavrsetka());
         
     }
     

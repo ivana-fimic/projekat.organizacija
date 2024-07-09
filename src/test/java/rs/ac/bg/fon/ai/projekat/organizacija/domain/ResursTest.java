@@ -63,11 +63,11 @@ public class ResursTest {
         assertEquals(1, r.getTim().getIDTima());
         assertEquals("PR", r.getTim().getNazivTima());
         assertEquals(8, r.getTim().getBrojClanova());
-        assertEquals(1, r.getTim().getIDProjekta().getIDProjekta());
-        assertEquals("BDW", r.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", r.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, r.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, r.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, r.getTim().getProjekat().getIDProjekta());
+        assertEquals("BDW", r.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", r.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, r.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, r.getTim().getProjekat().getDatumZavrsetka());
 
     }
 
@@ -122,13 +122,13 @@ public class ResursTest {
 
         r.setTim(new Tim(1, "PR", 8, new Projekat(1, "BDW", "dizajn", datumP, datumZ)));
         assertEquals(1, r.getTim().getIDTima());
-        assertEquals(1, r.getTim().getIDProjekta().getIDProjekta());
+        assertEquals(1, r.getTim().getProjekat().getIDProjekta());
         assertEquals(8, r.getTim().getBrojClanova());
         assertEquals("PR", r.getTim().getNazivTima());
-        assertEquals("BDW", r.getTim().getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", r.getTim().getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, r.getTim().getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, r.getTim().getIDProjekta().getDatumZavrsetka());
+        assertEquals("BDW", r.getTim().getProjekat().getNazivProjekta());
+        assertEquals("dizajn", r.getTim().getProjekat().getVrstaProjekta());
+        assertEquals(datumP, r.getTim().getProjekat().getDatumPocetka());
+        assertEquals(datumZ, r.getTim().getProjekat().getDatumZavrsetka());
 
     }
     @Test

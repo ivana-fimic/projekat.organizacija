@@ -96,7 +96,7 @@ public class DetaljiTima extends javax.swing.JDialog {
         setTitle("Detalji tima");
 
         txtNazivTima.setText(t.getNazivTima());
-        cmbProjekti.setSelectedItem(t.getIDProjekta());
+        cmbProjekti.setSelectedItem(t.getProjekat());
         txtUkupnoClanova.setText(String.valueOf(t.getBrojClanova()));
         pozicije = KlijentController.getInstance().vratiPozicije();
         popuniComboPozicijama();
@@ -390,7 +390,7 @@ public class DetaljiTima extends javax.swing.JDialog {
     }//GEN-LAST:event_btnObrisiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int odgovor = JOptionPane.showConfirmDialog(this, "DA LI ZELITE DA OBRISETE TIM " + tim.getNazivTima() + "-" + tim.getIDProjekta().getNazivProjekta() + "?", "Potvrda", JOptionPane.YES_NO_OPTION);
+        int odgovor = JOptionPane.showConfirmDialog(this, "DA LI ZELITE DA OBRISETE TIM " + tim.getNazivTima() + "-" + tim.getProjekat().getNazivProjekta() + "?", "Potvrda", JOptionPane.YES_NO_OPTION);
         if (odgovor == JOptionPane.YES_OPTION) {
             try {
                 KlijentController.getInstance().obrisiTim(tim);
@@ -436,7 +436,7 @@ public class DetaljiTima extends javax.swing.JDialog {
 
             Tim tim2 = new Tim();
             tim2.setNazivTima(nazivTima);
-            tim2.getIDProjekta().setNazivProjekta(p.getNazivProjekta());
+            tim2.getProjekat().setNazivProjekta(p.getNazivProjekta());
             tim2.setBrojClanova(ukupnobrClanova);
             tim2.setBrojPozicija(lista);
             tim2.setIDTima(tim.getIDTima());
@@ -449,7 +449,7 @@ public class DetaljiTima extends javax.swing.JDialog {
                 System.out.println("If za Pretragu");
             }
             if (roditelj2 instanceof DetaljiTima && roditelj2 != null) {
-                roditelj2.getCmbProjekti().setSelectedItem(tim2.getIDProjekta());
+                roditelj2.getCmbProjekti().setSelectedItem(tim2.getProjekat());
                 roditelj2.getTxtNazivTima().setText(tim2.getNazivTima());
                 roditelj2.getTxtUkupnoClanova().setText(String.valueOf(tim2.getBrojClanova()));
                 ModelTabeleBrojPozicija mt = (ModelTabeleBrojPozicija) roditelj2.getTblBrPozicija1().getModel();

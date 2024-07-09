@@ -64,7 +64,7 @@ public class ModelTabeleTim extends AbstractTableModel implements Runnable {
             case 1:
                 return t.getNazivTima();
             case 2:
-                return t.getIDProjekta().getNazivProjekta();
+                return t.getProjekat().getNazivProjekta();
             case 3:
                 return t.getBrojClanova();
 

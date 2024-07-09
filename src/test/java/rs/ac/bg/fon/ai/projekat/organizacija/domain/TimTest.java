@@ -47,7 +47,7 @@ public class TimTest {
         assertEquals(0, t.getIDTima());
         assertNull(t.getNazivTima());
         assertEquals(0, t.getBrojClanova());
-        assertNull(t.getIDProjekta());
+        assertNull(t.getProjekat());
     }
 
     @Test
@@ -63,11 +63,11 @@ public class TimTest {
         assertEquals("PR", t.getNazivTima());
         assertEquals(8, t.getBrojClanova());
 
-        assertEquals(1, t.getIDProjekta().getIDProjekta());
-        assertEquals("BDW", t.getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", t.getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, t.getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, t.getIDProjekta().getDatumZavrsetka());
+        assertEquals(1, t.getProjekat().getIDProjekta());
+        assertEquals("BDW", t.getProjekat().getNazivProjekta());
+        assertEquals("dizajn", t.getProjekat().getVrstaProjekta());
+        assertEquals(datumP, t.getProjekat().getDatumPocetka());
+        assertEquals(datumZ, t.getProjekat().getDatumZavrsetka());
 
     }
 
@@ -80,7 +80,7 @@ public class TimTest {
         t.setNazivTima("PR");
         LocalDate datumP = LocalDate.of(2024, 7, 15);
         LocalDate datumZ = LocalDate.of(2024, 9, 15);
-        t.setIDProjekta(new Projekat(0, "BDW", "dizajn", datumP, datumZ));
+        t.setProjekat(new Projekat(0, "BDW", "dizajn", datumP, datumZ));
 
         String st = t.toString();
 
@@ -118,13 +118,13 @@ public class TimTest {
             String nazivTima2, String nazivProjekta2, boolean eq) {
 
         t.setNazivTima(nazivTima);
-        t.setIDProjekta(new Projekat());
-        t.getIDProjekta().setNazivProjekta(nazivProjekta);
+        t.setProjekat(new Projekat());
+        t.getProjekat().setNazivProjekta(nazivProjekta);
 
         Tim t2 = new Tim();
         t2.setNazivTima(nazivTima2);
-        t2.setIDProjekta(new Projekat());
-        t2.getIDProjekta().setNazivProjekta(nazivProjekta2);
+        t2.setProjekat(new Projekat());
+        t2.getProjekat().setNazivProjekta(nazivProjekta2);
 
         assertEquals(eq, t.equals(t2));
     }
@@ -177,24 +177,24 @@ public class TimTest {
     }
 
     /**
-     * Test of setIDProjekta method, of class Tim.
+     * Test of setProjekat method, of class Tim.
      */
     @Test
     public void testSetIDProjekta() {
         LocalDate datumP = LocalDate.of(2024, 7, 15);
         LocalDate datumZ = LocalDate.of(2024, 9, 15);
-        t.setIDProjekta(new Projekat(1, "BDW", "dizajn", datumP, datumZ));
-        assertEquals(1, t.getIDProjekta().getIDProjekta());
-        assertEquals("BDW", t.getIDProjekta().getNazivProjekta());
-        assertEquals("dizajn", t.getIDProjekta().getVrstaProjekta());
-        assertEquals(datumP, t.getIDProjekta().getDatumPocetka());
-        assertEquals(datumZ, t.getIDProjekta().getDatumZavrsetka());
+        t.setProjekat(new Projekat(1, "BDW", "dizajn", datumP, datumZ));
+        assertEquals(1, t.getProjekat().getIDProjekta());
+        assertEquals("BDW", t.getProjekat().getNazivProjekta());
+        assertEquals("dizajn", t.getProjekat().getVrstaProjekta());
+        assertEquals(datumP, t.getProjekat().getDatumPocetka());
+        assertEquals(datumZ, t.getProjekat().getDatumZavrsetka());
     }
 
     @Test
     void testSetIDProjektaNull() {
         Exception e = assertThrows(java.lang.NullPointerException.class,
-                () -> t.setIDProjekta(null));
+                () -> t.setProjekat(null));
 
     }
 

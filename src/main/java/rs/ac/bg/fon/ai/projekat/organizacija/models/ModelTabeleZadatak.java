@@ -62,7 +62,7 @@ public class ModelTabeleZadatak extends AbstractTableModel implements Runnable {
             case 1:
                 return z.getNazivZadatka();
             case 2:
-                return z.getTim().getNazivTima() + "-" + z.getTim().getIDProjekta().getNazivProjekta();
+                return z.getTim().getNazivTima() + "-" + z.getTim().getProjekat().getNazivProjekta();
 
             default:
                 return "n/a";
