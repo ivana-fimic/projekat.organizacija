@@ -13,72 +13,140 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- *
- * @author Ivana
+ * Predstavlja detalje o poziciji unutar tima koja nam govori koliko pozicija ima u kom timu
+ * 
+ * @autor Ivana
  */
 public class DetaljiPozicija extends AbstractDomainObject {
- private Tim tim;
- private Pozicija pozicija;
- private int brojPozicija;
 
+    /**
+     * Tim kojem pripada pozicija.
+     */
+    private Tim tim;
+
+    /**
+     * Pozicija unutar tima.
+     */
+    private Pozicija pozicija;
+
+    /**
+     * Broj pozicija u timu tipa int.
+     */
+    private int brojPozicija;
+
+    /**
+     * Pravi nov objekat klase DetaljiPozicija sa zadatim vrednostima.
+     * 
+     * @param tim tim kojem pripada pozicija kao Tim
+     * @param pozicija pozicija unutar tima kao Pozicija
+     * @param brojPozicija broj pozicija kao int
+     */
     public DetaljiPozicija(Tim tim, Pozicija pozicija, int brojPozicija) {
         this.tim = tim;
         this.pozicija = pozicija;
         this.brojPozicija = brojPozicija;
     }
 
-   
-
+    /**
+     * Pravi nov objekat klase DetaljiPozicija.
+     * 
+     * Polja ostaju neinicijalizovana.
+     */
     public DetaljiPozicija() {
     }
 
+    /**
+     * Vraca tim kojem pripada pozicija.
+     * 
+     * @return tim kojem pripada pozicija kao Tim
+     */
     public Tim getTim() {
         return tim;
     }
 
+    /**
+     * Postavlja tim kojem pripada pozicija na unetu vrednost.
+     * 
+     * Uneti tim ne sme biti null.
+     * 
+     * @param tim tim kojem pripada pozicija kao Tim
+     * 
+     * @throws java.lang.NullPointerException ako je uneti tim null
+     */
     public void setTim(Tim tim) {
-        if(tim==null){
-             throw new NullPointerException("Tim ne sme biti null");
+        if (tim == null) {
+            throw new NullPointerException("Tim ne sme biti null");
         }
         this.tim = tim;
     }
 
-  
-
+    /**
+     * Vraca poziciju unutar tima.
+     * 
+     * @return pozicija unutar tima kao Pozicija
+     */
     public Pozicija getPozicija() {
         return pozicija;
     }
 
+    /**
+     * Postavlja poziciju unutar tima na unetu vrednost.
+     * 
+     * Uneta pozicija ne sme biti null.
+     * 
+     * @param pozicija pozicija unutar tima kao Pozicija
+     * 
+     * @throws java.lang.NullPointerException ako je uneta pozicija null
+     */
     public void setPozicija(Pozicija pozicija) {
-        if(pozicija==null){
-             throw new NullPointerException("Pozicija ne sme biti null");
+        if (pozicija == null) {
+            throw new NullPointerException("Pozicija ne sme biti null");
         }
         this.pozicija = pozicija;
     }
 
-    
+    /**
+     * Vraca broj pozicija.
+     * 
+     * @return broj pozicija kao int
+     */
     public int getBrojPozicija() {
         return brojPozicija;
     }
 
+    /**
+     * Postavlja broj pozicija na unetu vrednost.
+     * 
+     * Uneti broj ne sme biti negativan.
+     * 
+     * @param brojPozicija broj pozicija kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je uneti broj negativan
+     */
     public void setBrojPozicija(int brojPozicija) {
-        if(brojPozicija<0){
-             throw new IllegalArgumentException("Broj pozicija ne sme biti negativan");
+        if (brojPozicija < 0) {
+            throw new IllegalArgumentException("Broj pozicija ne sme biti negativan");
         }
         this.brojPozicija = brojPozicija;
     }
 
+    /**
+     * Vraća string reprezentaciju objekta DetaljiPozicija.
+     * 
+     * @return naziv tima, naziv pozicije i broj pozicija kao String
+     */
     @Override
     public String toString() {
-        return tim.getNazivTima()+" "+pozicija.getNazivPozicije()+" "+brojPozicija;
+        return tim.getNazivTima() + " " + pozicija.getNazivPozicije() + " " + brojPozicija;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        return hash;
-    }
-
+    /**
+     * Proverava da li su dva objekta jednaka prema timu i poziciji.
+     * 
+     * @param obj objekat sa kojim se poredi
+     * @return true ako oba objekta imaju isti tim i istu poziciju, 
+     * false u suprotnom
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -91,17 +159,12 @@ public class DetaljiPozicija extends AbstractDomainObject {
             return false;
         }
         final DetaljiPozicija other = (DetaljiPozicija) obj;
-        if (this.brojPozicija != other.brojPozicija) {
-            return false;
-        }
         if (!Objects.equals(this.tim, other.tim)) {
             return false;
         }
         return Objects.equals(this.pozicija, other.pozicija);
     }
-    
 
- 
  
     @Override
     public String nazivTabele() {
