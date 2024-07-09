@@ -13,17 +13,47 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
+ * Predstavlja projekat u studentskoj organizaciji sa atributima IDProjekta,NazivProjekta, VrstaProjekta, DatumPocetka i
+ * DatumZavrsetka projekta
  *
  * @author Ivana
  */
 public class Projekat extends AbstractDomainObject {
 
-    int IDProjekta;
-    String NazivProjekta;
-    String VrstaProjekta;
-    LocalDate DatumPocetka;
-    LocalDate DatumZavrsetka;
+    /**
+     * ID projekta tipa int.
+     */
+    private int IDProjekta;
 
+    /**
+     * Naziv projekta tipa String.
+     */
+    private String NazivProjekta;
+
+    /**
+     * Vrsta projekta tipa String.
+     */
+    private String VrstaProjekta;
+
+    /**
+     * Datum početka projekta tipa LocalDate.
+     */
+    private LocalDate DatumPocetka;
+
+    /**
+     * Datum završetka projekta tipa LocalDate.
+     */
+    private LocalDate DatumZavrsetka;
+
+    /**
+     * Pravi nov objekat klase Projekat sa zadatim vrednostima.
+     *
+     * @param IDProjekta ID projekta kao int
+     * @param NazivProjekta naziv projekta kao String
+     * @param VrstaProjekta vrsta projekta kao String
+     * @param DatumPocetka datum početka projekta kao LocalDate
+     * @param DatumZavrsetka datum završetka projekta kao LocalDate
+     */
     public Projekat(int IDProjekta, String NazivProjekta, String VrstaProjekta, LocalDate DatumPocetka, LocalDate DatumZavrsetka) {
         this.IDProjekta = IDProjekta;
         this.NazivProjekta = NazivProjekta;
@@ -32,83 +62,150 @@ public class Projekat extends AbstractDomainObject {
         this.DatumZavrsetka = DatumZavrsetka;
     }
 
+    /**
+     * Pravi nov objekat klase Projekat.
+     *
+     * Polja ostaju neinicijalizovana.
+     */
     public Projekat() {
     }
 
+    /**
+     * Vraca ID projekta.
+     *
+     * @return ID projekta kao int
+     */
     public int getIDProjekta() {
         return IDProjekta;
     }
 
+    /**
+     * Postavlja ID projekta na unetu vrednost.
+     *
+     * @param IDProjekta ID projekta kao int
+     */
     public void setIDProjekta(int IDProjekta) {
         this.IDProjekta = IDProjekta;
     }
 
+    /**
+     * Vraca naziv projekta.
+     *
+     * @return naziv projekta kao String
+     */
     public String getNazivProjekta() {
         return NazivProjekta;
     }
 
+    /**
+     * Postavlja naziv projekta na unetu vrednost.
+     *
+     * Uneti naziv ne sme biti null, ne sme sadržati brojeve i mora biti napisan velikim slovima.
+     *
+     * @param NazivProjekta naziv projekta kao String
+     *
+     * @throws java.lang.NullPointerException ako je uneti naziv null
+     * @throws java.lang.IllegalArgumentException ako uneti naziv sadrži brojeve ili nije napisan velikim slovima
+     */
     public void setNazivProjekta(String NazivProjekta) {
         if (NazivProjekta == null) {
             throw new NullPointerException("Naziv projekta ne sme biti null");
         }
         if (NazivProjekta.matches(".*\\d+.*")) {
             throw new IllegalArgumentException("Naziv projekta ne sme imati brojeve");
-
         }
-        if (!(NazivProjekta.equals(NazivProjekta.toUpperCase()))) {
-
-            throw new IllegalArgumentException("Naziv projekta ne sme imati mala slova");
+        if (!NazivProjekta.equals(NazivProjekta.toUpperCase())) {
+            throw new IllegalArgumentException("Naziv projekta mora biti napisan velikim slovima");
         }
         this.NazivProjekta = NazivProjekta;
     }
 
+    /**
+     * Vraca vrstu projekta.
+     *
+     * @return vrsta projekta kao String
+     */
     public String getVrstaProjekta() {
         return VrstaProjekta;
     }
 
+    /**
+     * Postavlja vrstu projekta na unetu vrednost.
+     *
+     * Uneta vrsta ne sme biti null i ne sme sadržati brojeve.
+     *
+     * @param VrstaProjekta vrsta projekta kao String
+     *
+     * @throws java.lang.NullPointerException ako je uneta vrsta null
+     * @throws java.lang.IllegalArgumentException ako uneta vrsta sadrži brojeve
+     */
     public void setVrstaProjekta(String VrstaProjekta) {
         if (VrstaProjekta == null) {
             throw new NullPointerException("Vrsta projekta ne sme biti null");
         }
         if (VrstaProjekta.matches(".*\\d+.*")) {
             throw new IllegalArgumentException("Vrsta projekta ne sme imati brojeve");
-
         }
-
-        
         this.VrstaProjekta = VrstaProjekta;
     }
 
+    /**
+     * Vraca datum početka projekta.
+     *
+     * @return datum početka projekta kao LocalDate
+     */
     public LocalDate getDatumPocetka() {
         return DatumPocetka;
     }
 
+    /**
+     * Postavlja datum početka projekta na unetu vrednost.
+     *
+     * Uneti datum ne sme biti null.
+     *
+     * @param DatumPocetka datum početka projekta kao LocalDate
+     *
+     * @throws java.lang.NullPointerException ako je uneti datum null
+     */
     public void setDatumPocetka(LocalDate DatumPocetka) {
         if (DatumPocetka == null) {
-            throw new NullPointerException("Datum pocetka projekta ne sme biti null");
-
+            throw new NullPointerException("Datum početka projekta ne sme biti null");
         }
         this.DatumPocetka = DatumPocetka;
     }
 
+    /**
+     * Vraca datum završetka projekta.
+     *
+     * @return datum završetka projekta kao LocalDate
+     */
     public LocalDate getDatumZavrsetka() {
         return DatumZavrsetka;
     }
 
+    /**
+     * Postavlja datum završetka projekta na unetu vrednost.
+     *
+     * Uneti datum ne sme biti null.
+     *
+     * @param DatumZavrsetka datum završetka projekta kao LocalDate
+     *
+     * @throws java.lang.NullPointerException ako je uneti datum null
+     */
     public void setDatumZavrsetka(LocalDate DatumZavrsetka) {
         if (DatumZavrsetka == null) {
-            throw new NullPointerException("Datum zavrsetka projekta ne sme biti null");
-
+            throw new NullPointerException("Datum završetka projekta ne sme biti null");
         }
         this.DatumZavrsetka = DatumZavrsetka;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
+    /**
+     * Proverava da li su dva objekta jednaka prema nazivu i vrsti projekta.
+     *
+     * @param obj objekat sa kojim se poredi
+     * @return true ako oba objekta imaju isti naziv i vrstu projekta, 
+     * false u suprotnom
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -121,20 +218,12 @@ public class Projekat extends AbstractDomainObject {
             return false;
         }
         final Projekat other = (Projekat) obj;
-        if (this.IDProjekta != other.IDProjekta) {
-            return false;
-        }
         if (!Objects.equals(this.NazivProjekta, other.NazivProjekta)) {
             return false;
         }
-        if (!Objects.equals(this.VrstaProjekta, other.VrstaProjekta)) {
-            return false;
-        }
-        if (!Objects.equals(this.DatumPocetka, other.DatumPocetka)) {
-            return false;
-        }
-        return Objects.equals(this.DatumZavrsetka, other.DatumZavrsetka);
+        return Objects.equals(this.VrstaProjekta, other.VrstaProjekta);
     }
+
 
     @Override
     public String nazivTabele() {

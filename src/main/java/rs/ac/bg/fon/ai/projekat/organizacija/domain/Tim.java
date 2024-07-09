@@ -309,9 +309,7 @@ public class Tim extends AbstractDomainObject {
         return Objects.equals(this.projekat, other.projekat);
     }
 
-    
 
-    
 
     @Override
     public String nazivTabele() {
