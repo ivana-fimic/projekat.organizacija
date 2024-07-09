@@ -48,7 +48,7 @@ public class StatistikaZadatka extends AbstractDomainObject {
     private LocalDate KrajnjiRok;
 
     /**
-     * Pomocni parametar vezan za člana (opciono).
+     * Pomocni parametar za uslov vezan za člana (opciono).
      */
     private String zaClana = "";
 
