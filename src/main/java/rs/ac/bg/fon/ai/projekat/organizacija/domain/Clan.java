@@ -89,7 +89,7 @@ public class Clan extends AbstractDomainObject {
      */
     @Expose
 
-    private  List<StatistikaZadatka> statistikaZad;
+    private List<StatistikaZadatka> statistikaZad;
 
     /**
      * Pravi nov objekat klase Clan sa zadatim vrednostima.
@@ -276,7 +276,10 @@ public class Clan extends AbstractDomainObject {
      * @throws java.lang.NullPointerException ako je uneti tim null
      */
     public void setTim(Tim tim) {
+        if (tim == null) {
+            throw new NullPointerException("Tim ne sme biti null");
 
+        }
         this.tim = tim;
     }
 
