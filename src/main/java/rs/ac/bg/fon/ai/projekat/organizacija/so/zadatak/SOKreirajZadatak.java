@@ -26,10 +26,6 @@ private Zadatak z;
        z=(Zadatak) ado;
         if (!(ado instanceof Zadatak)) {
             throw new Exception("Objekat nije instanca Zadatak");
-        }if (z.getNazivZadatka().isEmpty()) {
-            throw new Exception("Naziv zadatka ne moze biti prazan");
-        }if (z.getTim()==null) {
-            throw new Exception("Zadatak mora pripadati nekomy timu");
         }
         
        
@@ -51,7 +47,7 @@ private Zadatak z;
            }
           
         } catch (Exception ex) {
-            Logger.getLogger(SOKreirajTim.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception("Greska prilikom kreiranja zadatka");
         }
      
     }

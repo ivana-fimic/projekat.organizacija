@@ -23,9 +23,7 @@ private Clan c;
         if (!(ado instanceof Clan)) {
             throw new Exception("Objekat nije instanca Clana");
         }
-        if(!(c.getGodStudija()==1 || c.getGodStudija()==2 || c.getGodStudija()==3 || c.getGodStudija()==4)){
-            throw new Exception("Godina studija mora biti 1,2,3 ili 4");
-        }
+      
     }
 
     @Override
