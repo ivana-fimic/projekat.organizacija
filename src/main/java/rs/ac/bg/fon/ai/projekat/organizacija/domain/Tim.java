@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.Moodovi;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,6 +33,7 @@ public class Tim extends AbstractDomainObject {
     /**
      * Naziv tima tipa String.
      */
+    @Expose
     private String nazivTima;
     /**
      * Broj clanova tima tipa int
@@ -40,6 +42,7 @@ public class Tim extends AbstractDomainObject {
     /**
      * Projekat na kom radi tim
      */
+    @Expose
     private Projekat projekat;
     /**
      * Pozicije koje postoje unutar tima

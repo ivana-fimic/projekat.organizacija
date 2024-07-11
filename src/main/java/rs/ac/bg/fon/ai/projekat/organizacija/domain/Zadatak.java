@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.FazaZadatka;
 import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.Moodovi;
 import java.sql.ResultSet;

@@ -190,7 +190,7 @@ public class KreirajProjekat extends javax.swing.JDialog {
     }
 
     private void upisiUJSON(Projekat p) {
-       String filePath = "projekat.json";
+        String filePath = "projekat.json";
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting();

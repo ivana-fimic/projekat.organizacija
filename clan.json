@@ -1,0 +1,19 @@
+{
+  "IDClana": 33,
+  "Ime": "Milan",
+  "Prezime": "Maric",
+  "Godina studija": 2,
+  "pozicija": {
+    "nazivPozicije": "Asistent"
+  },
+  "tim": {
+    "nazivTima": "PR",
+    "projekat": {
+      "naziv": "BDI",
+      "vrsta": "Inzenjersko",
+      "datum": "2025-03-13",
+      "datum zavrsetka": "2025-03-15"
+    }
+  },
+  "Fakultet": "FON"
+}

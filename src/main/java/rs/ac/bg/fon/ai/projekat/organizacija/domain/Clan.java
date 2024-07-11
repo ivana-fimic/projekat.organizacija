@@ -27,21 +27,29 @@ public class Clan extends AbstractDomainObject {
     /**
      * ID člana kao int.
      */
+    @Expose
+
     private int IDClana;
 
     /**
      * Ime člana kao String.
      */
+    @Expose
+
     private String Ime;
 
     /**
      * Prezime člana kao String.
      */
+    @Expose
+
     private String Prezime;
 
     /**
      * Godina studija člana tipa int.
      */
+    @Expose
+
     @SerializedName("Godina studija")
     private int GodStudija;
 
@@ -61,33 +69,34 @@ public class Clan extends AbstractDomainObject {
     /**
      * Fakultet na kojem član studira kao String.
      */
+        @Expose
+
     private String Fakultet;
 
     /**
      * Pomocna promenljiva za parametar pretrage na formi.
      */
-    @Expose
+    @Expose(serialize = false)
 
     private String parametarZaPretragu;
 
     /**
      * Korisničko ime člana za prijavu.
      */
-    @Expose
-
+    @Expose(serialize = false)
     private String username;
 
     /**
      * Lozinka člana za prijavu.
      */
-    @Expose
+    @Expose(serialize = false)
 
     private String password;
 
     /**
      * Lista statistika zadataka člana.
      */
-    @Expose
+    @Expose(serialize = false)
 
     private List<StatistikaZadatka> statistikaZad;
 
@@ -397,7 +406,7 @@ public class Clan extends AbstractDomainObject {
      */
     @Override
     public String toString() {
-        return Ime + " " + Prezime;
+        return "Clan{" + "IDClana=" + IDClana + ", Ime=" + Ime + ", Prezime=" + Prezime + ", GodStudija=" + GodStudija + ", pozicija=" + pozicija + ", tim=" + tim + ", Fakultet=" + Fakultet + ", parametarZaPretragu=" + parametarZaPretragu + ", username=" + username + ", password=" + password + ", statistikaZad=" + statistikaZad + '}';
     }
 
     /**
