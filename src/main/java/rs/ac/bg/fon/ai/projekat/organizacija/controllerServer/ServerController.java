@@ -34,7 +34,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.zadatak.SONadjiZadatke;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.zadatak.SOUcitajZadatak;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.zadatak.SOZapamtiZadatak;
 import java.util.List;
-import so.tim.SONadjiTimove;
+import rs.ac.bg.fon.ai.projekat.organizacija.so.tim.SONadjiTimove;
 
 
 
