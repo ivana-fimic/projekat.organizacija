@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.FazaZadatka;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +26,8 @@ public class StatistikaZadatka extends AbstractDomainObject {
     /**
      * Član tima koji je zadužen za izvršavanje zadatka.
      */
+        @Expose(serialize = false)
+
     private Clan clan;
 
     /**

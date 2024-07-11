@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Objects;
 
 /**
  * Predstavlja poziciju unutar tima sa IDPozicije i nazivom
- * 
+ *
  * @autor Ivana
  */
 public class Pozicija extends AbstractDomainObject {
@@ -19,16 +20,19 @@ public class Pozicija extends AbstractDomainObject {
     /**
      * ID pozicije tipa int.
      */
-    private  int IDPozicije;
+    @Expose(serialize = false)
+
+    private int IDPozicije;
 
     /**
      * Naziv pozicije tipa String.
      */
+    @Expose
     private String nazivPozicije;
 
     /**
      * Pravi nov objekat klase Pozicija sa zadatim vrednostima.
-     * 
+     *
      * @param IDPozicije ID pozicije kao int
      * @param nazivPozicije naziv pozicije kao String
      */
@@ -39,7 +43,7 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Pravi nov objekat klase Pozicija.
-     * 
+     *
      * Polja ostaju neinicijalizovana.
      */
     public Pozicija() {
@@ -47,7 +51,7 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Vraca ID pozicije.
-     * 
+     *
      * @return ID pozicije kao int
      */
     public int getIDPozicije() {
@@ -56,7 +60,7 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Postavlja ID pozicije na unetu vrednost.
-     * 
+     *
      * @param IDPozicije ID pozicije kao int
      */
     public void setIDPozicije(int IDPozicije) {
@@ -65,7 +69,7 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Vraca naziv pozicije.
-     * 
+     *
      * @return naziv pozicije kao String
      */
     public String getNazivPozicije() {
@@ -74,13 +78,14 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Postavlja naziv pozicije na unetu vrednost.
-     * 
+     *
      * Uneti naziv ne sme biti null i ne sme biti prazan string.
-     * 
+     *
      * @param nazivPozicije naziv pozicije kao String
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneti naziv null
-     * @throws java.lang.IllegalArgumentException ako je uneti naziv prazan string
+     * @throws java.lang.IllegalArgumentException ako je uneti naziv prazan
+     * string
      */
     public void setNazivPozicije(String nazivPozicije) {
         if (nazivPozicije == null) {
@@ -94,7 +99,7 @@ public class Pozicija extends AbstractDomainObject {
 
     /**
      * Proverava da li su dva objekta jednaka prema nazivu pozicije.
-     * 
+     *
      * @param obj objekat sa kojim se poredi
      * @return true ako oba objekta imaju isti naziv pozicije, false u suprotnom
      */
@@ -112,16 +117,16 @@ public class Pozicija extends AbstractDomainObject {
         final Pozicija other = (Pozicija) obj;
         return Objects.equals(this.nazivPozicije, other.nazivPozicije);
     }
-/**
+
+    /**
      * Generiše string reprezentaciju objekta Pozicija.
-     * 
-     * @return  naziv pozicije kao String
+     *
+     * @return naziv pozicije kao String
      */
     @Override
     public String toString() {
         return nazivPozicije;
     }
-    
 
     @Override
     public String nazivTabele() {
@@ -135,12 +140,12 @@ public class Pozicija extends AbstractDomainObject {
 
     @Override
     public String join() {
-      return "";
+        return "";
     }
 
     @Override
     public ArrayList<AbstractDomainObject> vratiListu(ResultSet rs) throws SQLException {
-      ArrayList<AbstractDomainObject> lista = new ArrayList<>();
+        ArrayList<AbstractDomainObject> lista = new ArrayList<>();
 
         while (rs.next()) {
             Pozicija p = new Pozicija(rs.getInt("IDPozicije"),
@@ -175,11 +180,9 @@ public class Pozicija extends AbstractDomainObject {
 
     @Override
     public String uslovZaSelect() {
-      return "";
+        return "";
     }
 
-   
-    
     @Override
     public void setAutoIncrementPrimaryKey(int generatedKey) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -194,5 +197,5 @@ public class Pozicija extends AbstractDomainObject {
     public String uslovZaDelete() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

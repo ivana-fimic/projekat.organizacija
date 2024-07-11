@@ -6,8 +6,12 @@ package rs.ac.bg.fon.ai.projekat.organizacija.form.clan;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.JsonSerializer;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -168,13 +172,14 @@ public class KreirajClana extends javax.swing.JDialog {
             }
             int godStudija = Integer.parseInt(txtGodinaStudija.getText());
             Clan c = new Clan(0, ime, prezime, godStudija, p, t, fakultet);
-            c = KlijentController.getInstance().dodajČlana(c);            
+            c = KlijentController.getInstance().dodajČlana(c);
+            upisiUJSON(c);
 
             JOptionPane.showMessageDialog(this, "Sistem je kreirao člana.", "Informacija", JOptionPane.INFORMATION_MESSAGE);
             osveziFormu();
 
         } catch (Exception ex) {
-        ex.printStackTrace();
+            ex.printStackTrace();
         }
 
 
@@ -289,6 +294,33 @@ public class KreirajClana extends javax.swing.JDialog {
         cmbTim.setSelectedIndex(-1);
     }
 
-    
-    
+    private void upisiUJSON(Clan c) {
+        String filePath = "clan.json";
+        System.out.println(c);
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+
+        gsonBuilder.setPrettyPrinting();
+
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
+                -> new com.google.gson.JsonPrimitive(src.toString())
+        );
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
+                -> LocalDate.parse(json.getAsString())
+        );
+
+        Gson gson = gsonBuilder.create();
+
+        try (FileWriter out = new FileWriter(filePath)) {
+            String jsonString = gson.toJson(c);
+            System.out.println("JSON string: " + jsonString);
+            out.write(jsonString);
+            System.out.println("Uspešno upisano u fajl: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Greška pri pisanju u fajl: " + filePath);
+        }
+    }
+
 }

@@ -11,6 +11,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.lang.reflect.Type;
 import java.sql.ResultSet;
@@ -41,24 +42,28 @@ public class Projekat extends AbstractDomainObject {
     /**
      * Naziv projekta tipa String.
      */
+    @Expose
     @SerializedName("naziv")
     private String NazivProjekta;
 
     /**
      * Vrsta projekta tipa String.
      */
+    @Expose
     @SerializedName("vrsta")
     private  String VrstaProjekta;
 
     /**
      * Datum početka projekta tipa LocalDate.
      */
+    @Expose
     @SerializedName("datum")
     private  LocalDate DatumPocetka;
 
     /**
      * Datum završetka projekta tipa LocalDate.
      */
+    @Expose
     @SerializedName("datum zavrsetka")
     private   LocalDate DatumZavrsetka;
 
