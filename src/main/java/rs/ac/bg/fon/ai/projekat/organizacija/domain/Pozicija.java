@@ -19,7 +19,7 @@ public class Pozicija extends AbstractDomainObject {
     /**
      * ID pozicije tipa int.
      */
-    private int IDPozicije;
+    private  int IDPozicije;
 
     /**
      * Naziv pozicije tipa String.
@@ -112,6 +112,16 @@ public class Pozicija extends AbstractDomainObject {
         final Pozicija other = (Pozicija) obj;
         return Objects.equals(this.nazivPozicije, other.nazivPozicije);
     }
+/**
+     * Generiše string reprezentaciju objekta Pozicija.
+     * 
+     * @return  naziv pozicije kao String
+     */
+    @Override
+    public String toString() {
+        return nazivPozicije;
+    }
+    
 
     @Override
     public String nazivTabele() {

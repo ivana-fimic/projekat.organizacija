@@ -4,6 +4,8 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -14,9 +16,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Predstavlja člana tima i pamti u kom timu je i na kojoj poziciji je u tom timu,koji zadatak mu je dodeljen kao i
- * informacije o imenu, prezimenu, godini studija, fakultetu.
- * 
+ * Predstavlja člana tima i pamti u kom timu je i na kojoj poziciji je u tom
+ * timu,koji zadatak mu je dodeljen kao i informacije o imenu, prezimenu, godini
+ * studija, fakultetu.
+ *
  * @autor Ivana
  */
 public class Clan extends AbstractDomainObject {
@@ -39,16 +42,20 @@ public class Clan extends AbstractDomainObject {
     /**
      * Godina studija člana tipa int.
      */
+    @SerializedName("Godina studija")
     private int GodStudija;
 
     /**
      * Pozicija člana unutar tima.
      */
+    @Expose
+
     private Pozicija pozicija;
 
     /**
      * Tim kojem član pripada.
      */
+    @Expose
     private Tim tim;
 
     /**
@@ -59,26 +66,34 @@ public class Clan extends AbstractDomainObject {
     /**
      * Pomocna promenljiva za parametar pretrage na formi.
      */
+    @Expose
+
     private String parametarZaPretragu;
 
     /**
      * Korisničko ime člana za prijavu.
      */
+    @Expose
+
     private String username;
 
     /**
      * Lozinka člana za prijavu.
      */
+    @Expose
+
     private String password;
 
     /**
      * Lista statistika zadataka člana.
      */
-    private List<StatistikaZadatka> statistikaZad;
+    @Expose
+
+    private  List<StatistikaZadatka> statistikaZad;
 
     /**
      * Pravi nov objekat klase Clan sa zadatim vrednostima.
-     * 
+     *
      * @param IDClana ID člana kao int
      * @param Ime ime člana kao String
      * @param Prezime prezime člana kao String
@@ -99,7 +114,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Pravi nov objekat klase Clan.
-     * 
+     *
      * Polja ostaju neinicijalizovana.
      */
     public Clan() {
@@ -107,7 +122,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća ID člana.
-     * 
+     *
      * @return ID člana kao int
      */
     public int getIDClana() {
@@ -116,7 +131,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja ID člana na unetu vrednost.
-     * 
+     *
      * @param IDClana ID člana kao int
      */
     public void setIDClana(int IDClana) {
@@ -125,7 +140,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća ime člana.
-     * 
+     *
      * @return ime člana kao String
      */
     public String getIme() {
@@ -134,13 +149,15 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja ime člana na unetu vrednost.
-     * 
-     * Uneto ime ne sme biti null, ne sme sadržati brojeve i mora počinjati velikim slovom.
-     * 
+     *
+     * Uneto ime ne sme biti null, ne sme sadržati brojeve i mora počinjati
+     * velikim slovom.
+     *
      * @param Ime ime člana kao String
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneto ime null
-     * @throws java.lang.IllegalArgumentException ako ime sadrži brojeve ili počinje malim slovom
+     * @throws java.lang.IllegalArgumentException ako ime sadrži brojeve ili
+     * počinje malim slovom
      */
     public void setIme(String Ime) {
         if (Ime == null) {
@@ -157,7 +174,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća prezime člana.
-     * 
+     *
      * @return prezime člana kao String
      */
     public String getPrezime() {
@@ -166,13 +183,15 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja prezime člana na unetu vrednost.
-     * 
-     * Uneto prezime ne sme biti null, ne sme sadržati brojeve i mora počinjati velikim slovom.
-     * 
+     *
+     * Uneto prezime ne sme biti null, ne sme sadržati brojeve i mora počinjati
+     * velikim slovom.
+     *
      * @param Prezime prezime člana kao String
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneto prezime null
-     * @throws java.lang.IllegalArgumentException ako prezime sadrži brojeve ili počinje malim slovom
+     * @throws java.lang.IllegalArgumentException ako prezime sadrži brojeve ili
+     * počinje malim slovom
      */
     public void setPrezime(String Prezime) {
         if (Prezime == null) {
@@ -189,7 +208,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća godinu studija člana.
-     * 
+     *
      * @return godina studija člana kao int
      */
     public int getGodStudija() {
@@ -198,12 +217,13 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja godinu studija člana na unetu vrednost.
-     * 
+     *
      * Uneta godina studija mora biti između 1 i 4.
-     * 
+     *
      * @param GodStudija godina studija člana kao int
-     * 
-     * @throws java.lang.IllegalArgumentException ako je uneta godina studija van opsega 1 do 4
+     *
+     * @throws java.lang.IllegalArgumentException ako je uneta godina studija
+     * van opsega 1 do 4
      */
     public void setGodStudija(int GodStudija) {
         if (GodStudija < 1 || GodStudija > 4) {
@@ -214,7 +234,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća poziciju člana unutar tima.
-     * 
+     *
      * @return pozicija člana kao Pozicija
      */
     public Pozicija getPozicija() {
@@ -223,11 +243,11 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja poziciju člana unutar tima na unetu vrednost.
-     * 
+     *
      * Uneta pozicija ne sme biti null.
-     * 
+     *
      * @param pozicija pozicija člana kao Pozicija
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneta pozicija null
      */
     public void setPozicija(Pozicija pozicija) {
@@ -239,7 +259,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća tim kojem član pripada.
-     * 
+     *
      * @return tim kojem član pripada kao Tim
      */
     public Tim getTim() {
@@ -248,23 +268,21 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja tim kojem član pripada na unetu vrednost.
-     * 
+     *
      * Uneti tim ne sme biti null.
-     * 
+     *
      * @param tim tim kojem član pripada kao Tim
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneti tim null
      */
     public void setTim(Tim tim) {
-        if (tim == null) {
-            throw new NullPointerException("Tim ne sme biti null");
-        }
+
         this.tim = tim;
     }
 
     /**
      * Vraća fakultet na kojem član studira.
-     * 
+     *
      * @return fakultet na kojem član studira kao String
      */
     public String getFakultet() {
@@ -273,13 +291,15 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja fakultet na kojem član studira na unetu vrednost.
-     * 
-     * Uneti fakultet ne sme biti null, ne sme sadržati brojeve i mora počinjati velikim slovom.
-     * 
+     *
+     * Uneti fakultet ne sme biti null, ne sme sadržati brojeve i mora počinjati
+     * velikim slovom.
+     *
      * @param Fakultet fakultet na kojem član studira kao String
-     * 
+     *
      * @throws java.lang.NullPointerException ako je uneti fakultet null
-     * @throws java.lang.IllegalArgumentException ako fakultet sadrži brojeve ili počinje malim slovom
+     * @throws java.lang.IllegalArgumentException ako fakultet sadrži brojeve
+     * ili počinje malim slovom
      */
     public void setFakultet(String Fakultet) {
         if (Fakultet == null) {
@@ -296,7 +316,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća parametar za pretragu.
-     * 
+     *
      * @return parametar za pretragu kao String
      */
     public String getParametarZaPretragu() {
@@ -305,7 +325,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja parametar za pretragu na unetu vrednost.
-     * 
+     *
      * @param parametarZaPretragu parametar za pretragu kao String
      */
     public void setParametarZaPretragu(String parametarZaPretragu) {
@@ -314,7 +334,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća korisničko ime člana.
-     * 
+     *
      * @return korisničko ime člana kao String
      */
     public String getUsername() {
@@ -323,7 +343,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja korisničko ime člana na unetu vrednost.
-     * 
+     *
      * @param username korisničko ime člana kao String
      */
     public void setUsername(String username) {
@@ -332,7 +352,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća lozinku člana.
-     * 
+     *
      * @return lozinka člana kao String
      */
     public String getPassword() {
@@ -341,7 +361,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja lozinku člana na unetu vrednost.
-     * 
+     *
      * @param password lozinka člana kao String
      */
     public void setPassword(String password) {
@@ -350,7 +370,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća listu statistika zadataka člana.
-     * 
+     *
      * @return lista statistika zadataka člana kao List<StatistikaZadatka>
      */
     public List<StatistikaZadatka> getStatistikaZad() {
@@ -359,8 +379,9 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Postavlja listu statistika zadataka člana na unetu vrednost.
-     * 
-     * @param statistikaZad lista statistika zadataka člana kao List<StatistikaZadatka>
+     *
+     * @param statistikaZad lista statistika zadataka člana kao
+     * List<StatistikaZadatka>
      */
     public void setStatistikaZad(List<StatistikaZadatka> statistikaZad) {
         this.statistikaZad = statistikaZad;
@@ -368,7 +389,7 @@ public class Clan extends AbstractDomainObject {
 
     /**
      * Vraća string reprezentaciju objekta Clan.
-     * 
+     *
      * @return ime i prezime člana kao String
      */
     @Override
@@ -377,10 +398,12 @@ public class Clan extends AbstractDomainObject {
     }
 
     /**
-     * Proverava da li su dva objekta Clan jednaka prema ID-u, imenu i prezimenu.
-     * 
+     * Proverava da li su dva objekta Clan jednaka prema ID-u, imenu i
+     * prezimenu.
+     *
      * @param obj objekat sa kojim se poredi
-     * @return true ako oba objekta imaju isti ID, ime i prezime, false u suprotnom
+     * @return true ako oba objekta imaju isti ID, ime i prezime, false u
+     * suprotnom
      */
     @Override
     public boolean equals(Object obj) {

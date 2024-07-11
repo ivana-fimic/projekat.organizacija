@@ -94,8 +94,7 @@ public class StatistikaZadatka extends AbstractDomainObject {
      * ako je uneti član null
      */
     public void setClan(Clan clan) {
-        if (clan == null)
-            throw new NullPointerException("Clan ne sme biti null");
+        
         
         this.clan = clan;
     }

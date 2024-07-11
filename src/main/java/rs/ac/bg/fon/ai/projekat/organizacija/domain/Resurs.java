@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -37,6 +38,7 @@ public class Resurs extends AbstractDomainObject {
     /**
      * Tim koji koristi resurs.
      */
+    @Expose
     private Tim tim;
 
     /**

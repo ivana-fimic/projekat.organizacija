@@ -4,13 +4,19 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.form.clan;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializer;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
 import rs.ac.bg.fon.ai.projekat.organizacija.controller.KlijentController;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Clan;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Pozicija;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 import java.util.List;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -162,13 +168,13 @@ public class KreirajClana extends javax.swing.JDialog {
             }
             int godStudija = Integer.parseInt(txtGodinaStudija.getText());
             Clan c = new Clan(0, ime, prezime, godStudija, p, t, fakultet);
-            c = KlijentController.getInstance().dodajČlana(c);
+            c = KlijentController.getInstance().dodajČlana(c);            
+
             JOptionPane.showMessageDialog(this, "Sistem je kreirao člana.", "Informacija", JOptionPane.INFORMATION_MESSAGE);
             osveziFormu();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Sistem ne moze da kreira člana.", "GRESKA", JOptionPane.ERROR_MESSAGE);
-
+        ex.printStackTrace();
         }
 
 
@@ -238,7 +244,7 @@ public class KreirajClana extends javax.swing.JDialog {
 
     private String daLiJeDobarFormat(String ime, String prezime, String godinaStudija, String fakultet) {
         String poruka = "";
-        
+
         if (ime.matches(".*\\d+.*")) {
             poruka += "Ime ne sme sadrzati broj \n";
         }
@@ -254,7 +260,7 @@ public class KreirajClana extends javax.swing.JDialog {
         if (Character.isLowerCase(ime.charAt(0))) {
             poruka += "Prvo slovo imena mora biti veliko \n";
         }
-        
+
         if (Character.isLowerCase(prezime.charAt(0))) {
             poruka += "Prvo slovo prezimena mora biti veliko \n";
         }
@@ -282,4 +288,7 @@ public class KreirajClana extends javax.swing.JDialog {
         cmbPozicija.setSelectedIndex(-1);
         cmbTim.setSelectedIndex(-1);
     }
+
+    
+    
 }

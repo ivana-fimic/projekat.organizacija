@@ -4,6 +4,14 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.form.resurs;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializer;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import rs.ac.bg.fon.ai.projekat.organizacija.controller.KlijentController;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Resurs;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
@@ -143,4 +151,8 @@ public class KreirajResurs extends javax.swing.JDialog {
         }
         cmbTim.setSelectedIndex(-1);
     }
+
+    
+        
+    
 }

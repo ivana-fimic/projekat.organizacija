@@ -4,13 +4,19 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.form.projekat;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializer;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import rs.ac.bg.fon.ai.projekat.organizacija.controller.KlijentController;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Projekat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-
-
+import rs.ac.bg.fon.ai.projekat.organizacija.domain.Clan;
 
 /**
  *
@@ -121,9 +127,12 @@ public class KreirajProjekat extends javax.swing.JDialog {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String dateString1 = txtDatumPocetka.getText();
         String dateString2 = txtDatumZavrsetka.getText();
+        System.out.println(dateString1);
+        System.out.println(dateString2);
 
         LocalDate datumPocetka;
         LocalDate datumZavrsetka;
+        
 
         try {
             datumPocetka = LocalDate.parse(dateString1, formatter);
@@ -134,7 +143,9 @@ public class KreirajProjekat extends javax.swing.JDialog {
                 return;
             }
             Projekat p = new Projekat(0, nazivProjekta, vrstaProjekta, datumPocetka, datumZavrsetka);
+
             p = KlijentController.getInstance().dodajProjekat(p);
+            upisiUJSON(p);
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Niste uneli datum u ispravnom formatu! Ispravan format:yyyy-MM-dd");
@@ -178,4 +189,37 @@ public class KreirajProjekat extends javax.swing.JDialog {
 
     }
 
+    private void upisiUJSON(Projekat p) {
+       String filePath = "projekat.json";
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting();
+
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context) -> 
+            new com.google.gson.JsonPrimitive(src.toString())
+        );
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context) -> 
+            LocalDate.parse(json.getAsString())
+        );
+
+        Gson gson = gsonBuilder.create();
+
+        try (FileWriter out = new FileWriter(filePath)) {
+            String jsonString = gson.toJson(p);
+            System.out.println("JSON string: " + jsonString);
+            out.write(jsonString);
+            System.out.println("Uspešno upisano u fajl: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Greška pri pisanju u fajl: " + filePath);
+        }
+    }
+ 
+        
+    
 }
+        
+    
+
+
+

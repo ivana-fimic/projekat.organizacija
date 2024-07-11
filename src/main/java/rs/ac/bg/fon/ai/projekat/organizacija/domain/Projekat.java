@@ -4,10 +4,20 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.annotations.SerializedName;
+import java.lang.reflect.Type;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
@@ -18,32 +28,39 @@ import java.util.Objects;
  *
  * @author Ivana
  */
+
+
 public class Projekat extends AbstractDomainObject {
 
     /**
      * ID projekta tipa int.
      */
-    private int IDProjekta;
+    @SerializedName("id_projekta")
+    private  int IDProjekta;
 
     /**
      * Naziv projekta tipa String.
      */
+    @SerializedName("naziv")
     private String NazivProjekta;
 
     /**
      * Vrsta projekta tipa String.
      */
-    private String VrstaProjekta;
+    @SerializedName("vrsta")
+    private  String VrstaProjekta;
 
     /**
      * Datum početka projekta tipa LocalDate.
      */
-    private LocalDate DatumPocetka;
+    @SerializedName("datum")
+    private  LocalDate DatumPocetka;
 
     /**
      * Datum završetka projekta tipa LocalDate.
      */
-    private LocalDate DatumZavrsetka;
+    @SerializedName("datum zavrsetka")
+    private   LocalDate DatumZavrsetka;
 
     /**
      * Pravi nov objekat klase Projekat sa zadatim vrednostima.
@@ -310,7 +327,8 @@ public class Projekat extends AbstractDomainObject {
 
     @Override
     public String toString() {
-        return NazivProjekta;
+        return "Projekat{" + "IDProjekta=" + IDProjekta + ", NazivProjekta=" + NazivProjekta + ", VrstaProjekta=" + VrstaProjekta + ", DatumPocetka=" + DatumPocetka + ", DatumZavrsetka=" + DatumZavrsetka + '}';
     }
 
+    
 }

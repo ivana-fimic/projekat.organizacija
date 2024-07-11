@@ -28,7 +28,7 @@ public class Tim extends AbstractDomainObject {
     /**
      * ID tima tipa int.
      */
-    private int IDTima;
+    private  int IDTima;
     /**
      * Naziv tima tipa String.
      */
@@ -36,7 +36,7 @@ public class Tim extends AbstractDomainObject {
     /**
      * Broj clanova tima tipa int
      */
-    private int brojClanova;
+    private  int brojClanova;
     /**
      * Projekat na kom radi tim
      */
