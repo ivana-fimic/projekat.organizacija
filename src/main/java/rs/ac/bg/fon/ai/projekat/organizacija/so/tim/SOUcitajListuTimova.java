@@ -10,24 +10,46 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author Ivana
  */
+/**
+ * Sistemska operacija za učitavanje liste timova iz baze podataka. Nasleđuje
+ * apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje
+ * operacije.
+ */
 public class SOUcitajListuTimova extends AbstractSO {
- private ArrayList<Tim> lista;
+
+    /**
+     * Lista timova učitana iz baze podataka
+     *
+     */
+    private ArrayList<Tim> lista;
+
     @Override
+    /**
+     * Validira da li je prosleđeni objekat instanca klase Tim.
+     *
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Tim
+     */
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof Tim)) {
             throw new Exception("Prosledjeni objekat nije instanca klase Tim!");
         }
     }
 
+    /**
+     *  Učitavanje liste timova iz baze podataka.
+     *
+     * @param ado Apstraktni domenski objekat koji se učitava (Tim)
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom
+     * podataka ili učitavanja liste timova
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
-       ArrayList<AbstractDomainObject> timovi = DBBroker.getInstance().select(ado);
+        ArrayList<AbstractDomainObject> timovi = DBBroker.getInstance().select(ado);
         lista = (ArrayList<Tim>) (ArrayList<?>) timovi;
         ArrayList<Tim> novaLista = new ArrayList<>();
 
@@ -38,9 +60,13 @@ public class SOUcitajListuTimova extends AbstractSO {
         }
         lista = novaLista;
     }
-
+ /**
+     * Vraća listu timova učitanu iz baze podataka.
+     * 
+     * @return Lista timova
+     */
     public ArrayList<Tim> getLista() {
         return lista;
     }
-    
+
 }

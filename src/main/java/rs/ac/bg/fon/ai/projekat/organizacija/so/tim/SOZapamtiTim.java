@@ -16,15 +16,30 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
  *
  * @author Ivana
  */
-public class SOZapamtiTim extends AbstractSO {
 
+/**
+ * Sistemska operacija za ažuriranje tima i njegovih detalja u bazi podataka.
+ * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ */
+public class SOZapamtiTim extends AbstractSO {
+ /**
+     * Validira da li je prosleđeni objekat instanca klase Tim.
+     * 
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Tim
+     */
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof Tim)) {
             throw new Exception("Prosledjeni objekat nije instanca klase Tim!");
         }
     }
-
+ /**
+     * Izvršava operaciju ažuriranja tima i njegovih detalja u bazi podataka.
+     * 
+     * @param ado Apstraktni domenski objekat koji se ažurira (Tim)
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom podataka ili ažuriranja detalja
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
         DBBroker.getInstance().update(ado);

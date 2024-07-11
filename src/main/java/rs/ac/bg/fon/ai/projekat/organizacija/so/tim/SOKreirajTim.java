@@ -16,14 +16,27 @@ import java.util.logging.Logger;
  *
  * @author Ivana
  */
+/**
+ * Sistemska operacija  za kreiranje novog tima
+ * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije kreiranja.
+ */
 public class SOKreirajTim extends AbstractSO {
-
+ /**
+     * Tim koji se kreira.
+     */
     private Tim tim;
+     /**
+     * Detalji pozicija za novi tim.
+     */
     private DetaljiPozicija dp;
 
-    public SOKreirajTim() {
-    }
-
+ 
+/**
+     * Validira da li je prosleđeni objekat instanca klase Tim.
+     * 
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Tim
+     */
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
 
@@ -34,7 +47,12 @@ public class SOKreirajTim extends AbstractSO {
         
 
     }
-
+/**
+     * Kreiranje novog tima i detalja pozicija za taj tim bazi podataka.
+     * 
+     * @param ado Apstraktni domenski objekat koji predstavlja novi tim
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom podataka ili kreiranja tima
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
 
@@ -54,7 +72,11 @@ public class SOKreirajTim extends AbstractSO {
             throw new Exception("Greska prilikom kreiranja tima");
         }
     }
-
+ /**
+     * Vraća kreirani tim.
+     * 
+     * @return Kreirani tim
+     */
     public Tim getTim() {
         return tim;
     }

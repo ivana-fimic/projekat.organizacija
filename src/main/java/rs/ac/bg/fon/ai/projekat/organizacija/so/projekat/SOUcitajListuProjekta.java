@@ -16,17 +16,33 @@ import java.util.ArrayList;
  *
  * @author Ivana
  */
+/**
+ * Sistemska operacija  za učitavanje liste projekata iz baze podataka.
+ * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije učitavanja.
+ */
 public class SOUcitajListuProjekta extends AbstractSO {
-
+/**
+     * Lista projekata učitana iz baze
+     */
     private ArrayList<Projekat> lista;
-
+ /**
+     * Validira da li je prosleđeni objekat instanca klase Projekat.
+     *
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Projekat
+     */
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof Projekat)) {
             throw new Exception("Prosledjeni objekat nije instanca klase Projekat!");
         }
     }
-
+ /**
+     * Izvršava operaciju učitavanja liste projekata iz baze podataka.
+     *
+     * @param ado Apstraktni domenski objekat koji predstavlja kriterijum pretrage projekata
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom podataka ili učitavanja projekata
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
         ArrayList<AbstractDomainObject> projekti = DBBroker.getInstance().select(ado);
@@ -41,7 +57,11 @@ public class SOUcitajListuProjekta extends AbstractSO {
         lista = novaLista;
 
     }
-
+/**
+     * Vraća listu projekata nakon uspešnog izvršenja operacije.
+     *
+     * @return Lista projekata
+     */
     public ArrayList<Projekat> getLista() {
         return lista;
     }

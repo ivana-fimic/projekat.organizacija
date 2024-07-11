@@ -19,9 +19,22 @@ import java.util.logging.Logger;
  *
  * @author Ivana
  */
+/**
+ * Sistemska operacija  za kreiranje novog zadatka i  statistika tih zadataka u bazi podataka.
+ * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ */
 public class SOKreirajZadatak extends AbstractSO {
+    /**
+     * Kreirani zadatak
+     */
 private Zadatak z;
     @Override
+    /**
+     * Validira da li je prosleđeni objekat instanca klase Zadatak.
+     * 
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Zadatak
+     */
     protected void validate(AbstractDomainObject ado) throws Exception {
        z=(Zadatak) ado;
         if (!(ado instanceof Zadatak)) {
@@ -31,7 +44,12 @@ private Zadatak z;
        
         
     }
-
+ /**
+     * Izvršava operaciju kreiranja novog zadatka i njegovih statistika u bazi podataka.
+     * 
+     * @param ado Apstraktni domenski objekat koji se koristi za kreiranje (Zadatak)
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom podataka ili kreiranja statistika
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
       z=(Zadatak) DBBroker.getInstance().insert(ado);
@@ -51,14 +69,17 @@ private Zadatak z;
         }
      
     }
+     /**
+     * Vraća kreirani zadatak.
+     * 
+     * @return Kreirani zadatak
+     */
 
     public Zadatak getZ() {
         return z;
     }
 
-    public void setZ(Zadatak z) {
-        this.z = z;
-    }
+  
 
    
     

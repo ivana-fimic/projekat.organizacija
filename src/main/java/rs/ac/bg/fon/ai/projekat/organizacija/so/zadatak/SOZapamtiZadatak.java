@@ -17,15 +17,31 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
  *
  * @author Ivana
  */
+/**
+ * Sistemska operacija za izmenu zadatka u bazi podataka.
+ * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ */
 public class SOZapamtiZadatak extends AbstractSO {
-
+/**
+     * Validira da li je prosleđeni objekat instanca klase Zadatak.
+     * 
+     * @param ado Apstraktni domenski objekat koji se validira
+     * @throws Exception ako prosleđeni objekat nije instanca klase Zadatak
+     */
     @Override
     protected void validate(AbstractDomainObject ado) throws Exception {
         if (!(ado instanceof Zadatak)) {
             throw new Exception("Prosledjeni objekat nije instanca klase Zadatak!");
         }
     }
-
+ /**
+     * Izvršava operaciju update-a zadatka u bazi podataka.
+     * Ako je mood tabele zadatka DODATO ili OBRISANO, briše statistiku zadatka iz baze
+     * i zatim dodaje novu ili ažurira postojeću statistiku zadatka.
+     * 
+     * @param ado Apstraktni domenski objekat koji se ažurira (Zadatak)
+     * @throws Exception ako se desi greška prilikom komunikacije sa bazom podataka
+     */
     @Override
     protected void execute(AbstractDomainObject ado) throws Exception {
         DBBroker.getInstance().update(ado);
