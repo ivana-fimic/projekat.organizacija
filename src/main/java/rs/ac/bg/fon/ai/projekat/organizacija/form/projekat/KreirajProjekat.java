@@ -132,7 +132,6 @@ public class KreirajProjekat extends javax.swing.JDialog {
 
         LocalDate datumPocetka;
         LocalDate datumZavrsetka;
-        
 
         try {
             datumPocetka = LocalDate.parse(dateString1, formatter);
@@ -190,16 +189,18 @@ public class KreirajProjekat extends javax.swing.JDialog {
     }
 
     private void upisiUJSON(Projekat p) {
-        String filePath = "projekat.json";
+        String filePath = "src/main/resources/projekat.json";
 
         GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+
         gsonBuilder.setPrettyPrinting();
 
-        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context) -> 
-            new com.google.gson.JsonPrimitive(src.toString())
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
+                -> new com.google.gson.JsonPrimitive(src.toString())
         );
-        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context) -> 
-            LocalDate.parse(json.getAsString())
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
+                -> LocalDate.parse(json.getAsString())
         );
 
         Gson gson = gsonBuilder.create();
@@ -214,12 +215,5 @@ public class KreirajProjekat extends javax.swing.JDialog {
             System.err.println("Greška pri pisanju u fajl: " + filePath);
         }
     }
- 
-        
-    
+
 }
-        
-    
-
-
-

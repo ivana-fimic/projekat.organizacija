@@ -1,0 +1,19 @@
+{
+  "IDClana": 35,
+  "Ime": "Lana",
+  "Prezime": "Siljkovic",
+  "Godina studija": 2,
+  "pozicija": {
+    "nazivPozicije": "Koordinator"
+  },
+  "tim": {
+    "nazivTima": "LOG",
+    "projekat": {
+      "naziv": "JF",
+      "vrsta": "sajam poslova",
+      "datum": "2023-11-01",
+      "datum zavrsetka": "2024-11-03"
+    }
+  },
+  "Fakultet": "FON"
+}

@@ -20,8 +20,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author Ivana
@@ -121,10 +119,11 @@ public class KreirajResurs extends javax.swing.JDialog {
             String naziv = txtNaziv.getText();
             int kolicina = Integer.parseInt(txtKolicina.getText());
             Tim t = (Tim) cmbTim.getSelectedItem();
-            
+
             Resurs r = new Resurs(0, naziv, kolicina, t);
             r = KlijentController.getInstance().dodajResurs(r);
-             JOptionPane.showMessageDialog(this, "Sistem je kreirao resurs.","Informacija", JOptionPane.INFORMATION_MESSAGE);
+            upisiUJSON(r);
+            JOptionPane.showMessageDialog(this, "Sistem je kreirao resurs.", "Informacija", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
             Logger.getLogger(KreirajResurs.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -152,7 +151,32 @@ public class KreirajResurs extends javax.swing.JDialog {
         cmbTim.setSelectedIndex(-1);
     }
 
-    
-        
-    
+    private void upisiUJSON(Resurs r) {
+        String filePath = "src/main/resources/resurs.json";
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+
+        gsonBuilder.setPrettyPrinting();
+
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
+                -> new com.google.gson.JsonPrimitive(src.toString())
+        );
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
+                -> LocalDate.parse(json.getAsString())
+        );
+
+        Gson gson = gsonBuilder.create();
+
+        try (FileWriter out = new FileWriter(filePath)) {
+            String jsonString = gson.toJson(r);
+            System.out.println("JSON string: " + jsonString);
+            out.write(jsonString);
+            System.out.println("Uspešno upisano u fajl: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Greška pri pisanju u fajl: " + filePath);
+        }
+    }
+
 }

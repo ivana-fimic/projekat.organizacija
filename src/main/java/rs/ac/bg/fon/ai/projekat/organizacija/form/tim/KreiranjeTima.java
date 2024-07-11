@@ -4,6 +4,13 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.form.tim;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializer;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
 import rs.ac.bg.fon.ai.projekat.organizacija.controller.KlijentController;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.DetaljiPozicija;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Pozicija;
@@ -290,6 +297,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         t.setBrojPozicija(brPozicija);
         try {
             t = KlijentController.getInstance().dodajTim(t);
+            upisiUJSON(t);
             JOptionPane.showMessageDialog(this, "Sistem je kreirao tim");
             osveziFormu();
         } catch (Exception ex) {
@@ -439,4 +447,34 @@ public class KreiranjeTima extends javax.swing.JDialog {
 
         return poruka;
     }
+
+    private void upisiUJSON(Tim t) {
+         String filePath = "src/main/resources/tim.json";
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.excludeFieldsWithoutExposeAnnotation();
+
+        gsonBuilder.setPrettyPrinting();
+
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
+                -> new com.google.gson.JsonPrimitive(src.toString())
+        );
+        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
+                -> LocalDate.parse(json.getAsString())
+        );
+
+        Gson gson = gsonBuilder.create();
+
+        try (FileWriter out = new FileWriter(filePath)) {
+            String jsonString = gson.toJson(t);
+            System.out.println("JSON string: " + jsonString);
+            out.write(jsonString);
+            System.out.println("Uspešno upisano u fajl: " + filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Greška pri pisanju u fajl: " + filePath);
+        }
+    }
+        
+    
 }
