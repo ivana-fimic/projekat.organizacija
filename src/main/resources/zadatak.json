@@ -1,11 +1,5 @@
 {
-  "IDClana": 33,
-  "Ime": "Milan",
-  "Prezime": "Maric",
-  "Godina studija": 2,
-  "pozicija": {
-    "nazivPozicije": "Asistent"
-  },
+  "NazivZadatka": "pozivanje medija",
   "tim": {
     "nazivTima": "PR",
     "projekat": {
@@ -15,5 +9,11 @@
       "datum zavrsetka": "2025-03-15"
     }
   },
-  "Fakultet": "FON"
+  "statistika": [
+    {
+      "FazaZadatka": "U_IZRADI",
+      "datumDodele": "2024-07-12",
+      "KrajnjiRok": "2024-08-12"
+    }
+  ]
 }

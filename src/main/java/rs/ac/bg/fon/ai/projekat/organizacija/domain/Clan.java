@@ -406,7 +406,7 @@ public class Clan extends AbstractDomainObject {
      */
     @Override
     public String toString() {
-        return "Clan{" + "IDClana=" + IDClana + ", Ime=" + Ime + ", Prezime=" + Prezime + ", GodStudija=" + GodStudija + ", pozicija=" + pozicija + ", tim=" + tim + ", Fakultet=" + Fakultet + ", parametarZaPretragu=" + parametarZaPretragu + ", username=" + username + ", password=" + password + ", statistikaZad=" + statistikaZad + '}';
+        return Ime+" "+Prezime;
     }
 
     /**

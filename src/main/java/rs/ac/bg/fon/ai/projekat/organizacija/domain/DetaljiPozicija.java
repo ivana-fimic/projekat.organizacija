@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.ai.projekat.organizacija.domain;
 
+import com.google.gson.annotations.Expose;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -27,11 +28,13 @@ public class DetaljiPozicija extends AbstractDomainObject {
     /**
      * Pozicija unutar tima.
      */
+    @Expose
     private Pozicija pozicija;
 
     /**
      * Broj pozicija u timu tipa int.
      */
+    @Expose
     private int brojPozicija;
 
     /**

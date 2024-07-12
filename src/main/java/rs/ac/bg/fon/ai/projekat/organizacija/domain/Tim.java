@@ -47,10 +47,12 @@ public class Tim extends AbstractDomainObject {
     /**
      * Pozicije koje postoje unutar tima
      */
+    
     private List<Pozicija> pozicije;
     /**
      * Lista sa DetaljimaPozicija koja nam pokazuje koliko pozicija ima u timu
      */
+    @Expose
     private List<DetaljiPozicija> brojPozicija;
 
     /**

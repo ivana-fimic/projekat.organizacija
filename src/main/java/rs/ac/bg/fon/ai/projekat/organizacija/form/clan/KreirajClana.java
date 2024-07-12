@@ -295,7 +295,7 @@ public class KreirajClana extends javax.swing.JDialog {
     }
 
     private void upisiUJSON(Clan c) {
-        String filePath = "clan.json";
+        String filePath = "src/main/resources/clan.json";
         System.out.println(c);
 
         GsonBuilder gsonBuilder = new GsonBuilder();

@@ -26,28 +26,32 @@ public class StatistikaZadatka extends AbstractDomainObject {
     /**
      * Član tima koji je zadužen za izvršavanje zadatka.
      */
-        @Expose(serialize = false)
+        
 
     private Clan clan;
 
     /**
      * Zadatak na koji se statistika odnosi.
      */
+     @Expose
     private Zadatak zadatak;
 
     /**
      * Faza zadatka u do koje je clan dosao sa izvršavanjem zadatka.
      */
+      @Expose
     private FazaZadatka FazaZadatka;
 
     /**
      * Datum dodele zadatka članu.
      */
+       @Expose
     private LocalDate datumDodele;
 
     /**
      * Krajnji rok za izvršavanje zadatka.
      */
+        @Expose
     private LocalDate KrajnjiRok;
 
     /**

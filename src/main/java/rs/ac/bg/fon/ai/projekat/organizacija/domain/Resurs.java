@@ -28,11 +28,13 @@ public class Resurs extends AbstractDomainObject {
     /**
      * Naziv resursa kao int.
      */
+    @Expose
     private String nazivResursa;
 
     /**
      * Količina resursa kao String.
      */
+    @Expose
     private int kolicina;
 
     /**

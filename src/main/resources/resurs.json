@@ -1,0 +1,13 @@
+{
+  "nazivResursa": "Laptop",
+  "kolicina": 5,
+  "tim": {
+    "nazivTima": "FR",
+    "projekat": {
+      "naziv": "AIBG",
+      "vrsta": "hakaton",
+      "datum": "2024-12-01",
+      "datum zavrsetka": "2023-12-03"
+    }
+  }
+}

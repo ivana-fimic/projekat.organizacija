@@ -34,14 +34,17 @@ public class Zadatak extends AbstractDomainObject {
      /**
      * Naziv zadatka kao int
      */
+    @Expose
     private String NazivZadatka;
      /**
      * Tim kojem je dodeljen zadatak.
      */
+     @Expose
     private Tim tim;
     /**
      * Lista statistika za zadatak.
      */
+     @Expose
     private List<StatistikaZadatka> statistika;
     /**
      * Pomocna promenljiva za parametar pretrage na formi
