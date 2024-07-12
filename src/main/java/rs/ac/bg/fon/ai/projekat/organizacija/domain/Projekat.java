@@ -332,7 +332,7 @@ public class Projekat extends AbstractDomainObject {
 
     @Override
     public String toString() {
-        return "Projekat{" + "IDProjekta=" + IDProjekta + ", NazivProjekta=" + NazivProjekta + ", VrstaProjekta=" + VrstaProjekta + ", DatumPocetka=" + DatumPocetka + ", DatumZavrsetka=" + DatumZavrsetka + '}';
+        return NazivProjekta;
     }
 
     
