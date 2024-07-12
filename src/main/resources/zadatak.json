@@ -1,19 +1,29 @@
 {
-  "NazivZadatka": "pozivanje medija",
-  "tim": {
-    "nazivTima": "PR",
-    "projekat": {
-      "naziv": "BDI",
-      "vrsta": "Inzenjersko",
-      "datum": "2025-03-13",
-      "datum zavrsetka": "2025-03-15"
-    }
-  },
+  "NazivZadatka": "sastanak sa komapnijama",
   "statistika": [
     {
+      "clan": {
+        "IDClana": 2,
+        "Ime": "Dimitrije",
+        "Prezime": "Siljkovic",
+        "Godina studija": 4,
+        "pozicija": {
+          "nazivPozicije": "Koordinator"
+        },
+        "tim": {
+          "nazivTima": "FR",
+          "projekat": {
+            "naziv": "AIBG",
+            "vrsta": "hakaton",
+            "datum": "2024-12-01",
+            "datum zavrsetka": "2023-12-03"
+          }
+        },
+        "Fakultet": " FON"
+      },
       "FazaZadatka": "U_IZRADI",
-      "datumDodele": "2024-07-12",
-      "KrajnjiRok": "2024-08-12"
+      "datumDodele": "2024-07-18",
+      "KrajnjiRok": "2024-07-20"
     }
   ]
 }

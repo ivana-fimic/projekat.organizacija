@@ -285,10 +285,7 @@ public class Clan extends AbstractDomainObject {
      * @throws java.lang.NullPointerException ako je uneti tim null
      */
     public void setTim(Tim tim) {
-        if (tim == null) {
-            throw new NullPointerException("Tim ne sme biti null");
-
-        }
+       
         this.tim = tim;
     }
 

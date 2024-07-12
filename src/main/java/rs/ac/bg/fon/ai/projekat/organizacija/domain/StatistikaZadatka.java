@@ -27,7 +27,7 @@ public class StatistikaZadatka extends AbstractDomainObject {
      * Član tima koji je zadužen za izvršavanje zadatka.
      */
         
-
+@Expose
     private Clan clan;
 
     /**

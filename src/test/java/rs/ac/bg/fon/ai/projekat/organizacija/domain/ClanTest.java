@@ -239,12 +239,7 @@ public class ClanTest {
         
     }
     
-    @Test
-    void testSetTimNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
-                () -> c.setTim(null));
-
-    }
+  
 
     @Test
     void testEqualsObject() {

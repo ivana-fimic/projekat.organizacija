@@ -39,7 +39,6 @@ public class Zadatak extends AbstractDomainObject {
      /**
      * Tim kojem je dodeljen zadatak.
      */
-     @Expose
     private Tim tim;
     /**
      * Lista statistika za zadatak.
