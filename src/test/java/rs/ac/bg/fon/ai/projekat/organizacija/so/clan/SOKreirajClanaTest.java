@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 
@@ -85,9 +85,9 @@ public class SOKreirajClanaTest {
 
         Clan createdClan = so.getC();
         assertNotNull(c);
-        assertEquals(1, c.getIDClana());
-        assertEquals("Ivana", c.getIme());
-        assertEquals("Fimic", c.getPrezime());
+        assertEquals(1, createdClan.getIDClana());
+        assertEquals("Ivana", createdClan.getIme());
+        assertEquals("Fimic", createdClan.getPrezime());
 
         verify(dbBroker, times(1)).insert(c);
 
@@ -98,7 +98,7 @@ public class SOKreirajClanaTest {
 
         when(dbBroker.insert(c)).thenThrow(new RuntimeException("Greska prilikom kreiranja clana"));
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+         assertThrows(RuntimeException.class, () -> {
             so.execute(c);
         });
 

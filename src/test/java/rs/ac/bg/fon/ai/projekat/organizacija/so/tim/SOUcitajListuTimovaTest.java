@@ -29,7 +29,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 
 @ExtendWith(MockitoExtension.class)
@@ -96,7 +96,7 @@ public class SOUcitajListuTimovaTest {
 
          when(dbBroker.select(t)).thenThrow(new RuntimeException("Greska prilikom pronalaska"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+         assertThrows(Exception.class, () -> {
             so.execute(t);
         });
 

@@ -12,14 +12,13 @@ import java.util.ArrayList;
 
 
 /**
- *
- * @author Ivana
- */
-
-/**
  * Sistemska operacija sistema za pronalaženje zadataka u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ * 
+ * @author Ivana Fimic
  */
+
+
 public class SONadjiZadatke extends AbstractSO {
    /**
     * Lista pronadjenih zadataka kao ArrayList

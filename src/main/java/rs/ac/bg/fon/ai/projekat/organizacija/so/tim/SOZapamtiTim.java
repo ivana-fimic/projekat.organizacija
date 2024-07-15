@@ -13,14 +13,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 
 /**
- *
- * @author Ivana
- */
-
-/**
  * Sistemska operacija za ažuriranje tima i njegovih detalja u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOZapamtiTim extends AbstractSO {
  /**
      * Validira da li je prosleđeni objekat instanca klase Tim.

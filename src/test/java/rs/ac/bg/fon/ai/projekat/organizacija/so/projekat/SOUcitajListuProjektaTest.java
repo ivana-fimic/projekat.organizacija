@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOUcitajListuProjektaTest {
@@ -85,7 +85,7 @@ public class SOUcitajListuProjektaTest {
     public void testExecuteNeuspesno() throws Exception {
         when(dbBroker.select(projekat)).thenThrow(new RuntimeException("Greška prilikom selektovanja projekata"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(projekat);
         });
 

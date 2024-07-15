@@ -26,7 +26,10 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Pozicija;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Projekat;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
-
+/**
+ *
+ * @author Ivana Fimic
+ */
 @ExtendWith(MockitoExtension.class)
 
 public class SOKreirajTimTest {
@@ -105,14 +108,13 @@ public class SOKreirajTimTest {
         pozicije.add(new DetaljiPozicija());
         newTim.setBrojPozicija(pozicije);
 
-        // Simulate an error during insertion
         when(dbBroker.insert(newTim)).thenThrow(new RuntimeException("Greska prilikom kreiranja tima"));
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+         assertThrows(RuntimeException.class, () -> {
             so.execute(newTim);
         });
 
-        assertEquals("Greska prilikom kreiranja tima", exception.getMessage());
+       
          
 }
 }

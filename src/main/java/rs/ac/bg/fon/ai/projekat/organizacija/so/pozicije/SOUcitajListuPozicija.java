@@ -11,14 +11,13 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 import java.util.ArrayList;
 
 /**
- *
- * @author Ivana
- */
-/**
- * Sistemska operacija za učitavanje liste pozicija Nasleđuje apstraktnu klasu
+ *Sistemska operacija za učitavanje liste pozicija Nasleđuje apstraktnu klasu
  * AbstractSO i implementira metode za validaciju i izvršenje operacije
+ * 
  * učitavanja.
+ * @author Ivana Fimic
  */
+
 public class SOUcitajListuPozicija extends AbstractSO {
 
     /**

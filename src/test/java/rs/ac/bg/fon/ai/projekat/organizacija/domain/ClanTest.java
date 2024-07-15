@@ -19,7 +19,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class ClanTest {
 
@@ -105,30 +105,25 @@ public class ClanTest {
     
       @Test
     void testSetFakultetNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> c.setFakultet(null));
 
     }
 
     @Test
     void testSetFakultetSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setFakultet("a5"));
 
     }
 
     @Test
     void testSetFakultetVelikoPocetno() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setFakultet("fon"));
 
     }
     
-    
-
-    /**
-     * Test of setIme method, of class Clan.
-     */
     @Test
     public void testSetIme() {
         c.setIme("Ivana");
@@ -137,28 +132,26 @@ public class ClanTest {
 
     @Test
     void testSetImeNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> c.setIme(null));
 
     }
 
     @Test
     void testSetImeSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setIme("a5"));
 
     }
 
     @Test
     void testSetImeVelikoPocetno() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+         assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setIme("ivana"));
 
     }
 
-    /**
-     * Test of setPrezime method, of class Clan.
-     */
+   
     @Test
     public void testSetPrezime() {
         c.setPrezime("Fimic");
@@ -167,28 +160,25 @@ public class ClanTest {
 
     @Test
     void testSetPrezimeNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> c.setPrezime(null));
 
     }
 
     @Test
     void testSetPrezimeSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+         assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setPrezime("a5"));
 
     }
 
     @Test
     void testSetPrezimeVelikoPocetno() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+       assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setPrezime("fimic"));
 
     }
 
-    /**
-     * Test of setGodStudija method, of class Clan.
-     */
     @Test
     public void testSetGodStudija() {
         c.setGodStudija(4);
@@ -197,7 +187,7 @@ public class ClanTest {
 
     @Test
     void testSetGodStudijaRang() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> c.setGodStudija(8));
 
     }
@@ -214,7 +204,7 @@ public class ClanTest {
     
     @Test
     void testSetPozicijaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> c.setPozicija(null));
 
     }

@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class DetaljiPozicijaTest {
 
@@ -93,14 +93,12 @@ public class DetaljiPozicijaTest {
 
     @Test
     void testSetTimNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> dp.setTim(null));
 
     }
 
-    /**
-     * Test of setPozicija method, of class DetaljiPozicija.
-     */
+
     @Test
     public void testSetPozicija() {
         dp.setPozicija(new Pozicija(1, "Koordinator"));
@@ -110,14 +108,12 @@ public class DetaljiPozicijaTest {
 
     @Test
     void testSetPozicijaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> dp.setPozicija(null));
 
     }
 
-    /**
-     * Test of setBrojPozicija method, of class DetaljiPozicija.
-     */
+  
     @Test
     public void testSetBrojPozicija() {
         dp.setBrojPozicija(4);
@@ -126,7 +122,7 @@ public class DetaljiPozicijaTest {
 
     @Test
     void testSetBrojPozicijaBroj() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+       assertThrows(java.lang.IllegalArgumentException.class,
                 () -> dp.setBrojPozicija(-1));
 
     }

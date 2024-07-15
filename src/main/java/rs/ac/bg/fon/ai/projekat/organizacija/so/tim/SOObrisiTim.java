@@ -15,13 +15,11 @@ import java.util.List;
 
 
 /**
- *
- * @author Ivana
- */
-/**
- * Sistemska operacijaza brisanje tima iz baze podataka.
+ *Sistemska operacijaza brisanje tima iz baze podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije brisanja.
+ * @author Ivana Fimic
  */
+
 public class SOObrisiTim extends AbstractSO {
 /**
      * Validira da li je prosleđeni objekat instanca klase Tim.

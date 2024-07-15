@@ -31,7 +31,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 
@@ -93,7 +93,7 @@ public class SONadjiClanoveTest {
     public void testExecuteNeuspesno() throws Exception {
         when(dbBroker.select(clan)).thenThrow(new RuntimeException("Greska prilikom pronalaska"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(clan);
         });
 

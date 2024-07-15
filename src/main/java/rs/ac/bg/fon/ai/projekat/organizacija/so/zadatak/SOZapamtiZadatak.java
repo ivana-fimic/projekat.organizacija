@@ -14,13 +14,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za izmenu zadatka u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOZapamtiZadatak extends AbstractSO {
 /**
      * Validira da li je prosleđeni objekat instanca klase Zadatak.

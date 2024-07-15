@@ -20,7 +20,7 @@ import java.util.Objects;
  * timu,koji zadatak mu je dodeljen kao i informacije o imenu, prezimenu, godini
  * studija, fakultetu.
  *
- * @autor Ivana
+ * @autor Ivana Fimic
  */
 public class Clan extends AbstractDomainObject {
 
@@ -93,15 +93,7 @@ public class Clan extends AbstractDomainObject {
 
     private String password;
 
-    /**
-     * Lista statistika zadataka člana.
-     */
-    @Expose(serialize = false)
-
-    private List<StatistikaZadatka> statistikaZad;
-
-    /**
-     * Pravi nov objekat klase Clan sa zadatim vrednostima.
+  /**     * Pravi nov objekat klase Clan sa zadatim vrednostima.
      *
      * @param IDClana ID člana kao int
      * @param Ime ime člana kao String
@@ -377,25 +369,7 @@ public class Clan extends AbstractDomainObject {
         this.password = password;
     }
 
-    /**
-     * Vraća listu statistika zadataka člana.
-     *
-     * @return lista statistika zadataka člana kao List<StatistikaZadatka>
-     */
-    public List<StatistikaZadatka> getStatistikaZad() {
-        return statistikaZad;
-    }
-
-    /**
-     * Postavlja listu statistika zadataka člana na unetu vrednost.
-     *
-     * @param statistikaZad lista statistika zadataka člana kao
-     * List<StatistikaZadatka>
-     */
-    public void setStatistikaZad(List<StatistikaZadatka> statistikaZad) {
-        this.statistikaZad = statistikaZad;
-    }
-
+  
     /**
      * Vraća string reprezentaciju objekta Clan.
      *

@@ -32,7 +32,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.tim.SOKreirajTim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 
@@ -104,7 +104,7 @@ public class SOKreirajProjekatTest {
    
         when(dbBroker.insert(p)).thenThrow(new RuntimeException("Greska prilikom kreiranja projekta"));
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             so.execute(p);
         });
 

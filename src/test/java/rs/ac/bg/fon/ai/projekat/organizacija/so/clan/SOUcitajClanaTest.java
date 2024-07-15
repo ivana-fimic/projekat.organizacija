@@ -27,7 +27,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOUcitajClanaTest {
@@ -81,7 +81,7 @@ public class SOUcitajClanaTest {
     public void testExecuteNeuspesno() throws Exception {
         when(dbBroker.selectObject(clan)).thenThrow(new RuntimeException("Greška prilikom selektovanja člana"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(clan);
         });
 

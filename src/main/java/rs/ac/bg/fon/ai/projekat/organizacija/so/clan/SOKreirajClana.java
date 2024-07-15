@@ -10,14 +10,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Clan;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za kreiranje novog člana Nasleđuje apstraktnu klasu
  * AbstractSO i implementira metode za validaciju i izvršenje operacije
  * kreiranja.
+ * @author Ivana Fimic
  */
+
 public class SOKreirajClana extends AbstractSO {
 
     /**

@@ -13,13 +13,11 @@ import java.util.ArrayList;
 
 
 /**
- *
- * @author Ivana
- */
-/**
- * Sistemska operacija  za učitavanje liste projekata iz baze podataka.
+ *Sistemska operacija  za učitavanje liste projekata iz baze podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije učitavanja.
+ * @author Ivana Fimic
  */
+
 public class SOUcitajListuProjekta extends AbstractSO {
 /**
      * Lista projekata učitana iz baze

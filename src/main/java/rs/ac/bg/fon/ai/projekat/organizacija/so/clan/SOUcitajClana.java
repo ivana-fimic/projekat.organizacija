@@ -12,13 +12,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za učitavanje podataka o članu iz baze podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije učitavanja.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOUcitajClana extends AbstractSO {
     /**
      * Clan kog ucitavamo iz baze

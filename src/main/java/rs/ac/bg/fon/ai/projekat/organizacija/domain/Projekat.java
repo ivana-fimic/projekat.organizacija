@@ -27,7 +27,7 @@ import java.util.Objects;
  * Predstavlja projekat u studentskoj organizaciji sa atributima IDProjekta,NazivProjekta, VrstaProjekta, DatumPocetka i
  * DatumZavrsetka projekta
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 
 

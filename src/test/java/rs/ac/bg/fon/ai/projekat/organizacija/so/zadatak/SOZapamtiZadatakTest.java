@@ -32,7 +32,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.Moodovi;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 

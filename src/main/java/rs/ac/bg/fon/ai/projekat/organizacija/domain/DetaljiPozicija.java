@@ -16,7 +16,7 @@ import java.util.Objects;
 /**
  * Predstavlja detalje o poziciji unutar tima koja nam govori koliko pozicija ima u kom timu
  * 
- * @autor Ivana
+ * @autor Ivana Fimic
  */
 public class DetaljiPozicija extends AbstractDomainObject {
 

@@ -32,7 +32,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.zadatak.SOKreirajZadatak;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 
@@ -101,7 +101,7 @@ public class SONadjiTimoveTest {
 
          when(dbBroker.select(t)).thenThrow(new RuntimeException("Greska prilikom pronalaska"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+         assertThrows(Exception.class, () -> {
             so.execute(t);
         });
 

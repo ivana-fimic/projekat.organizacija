@@ -33,7 +33,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.FazaZadatka;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOVratiListuStatistikaTest {
@@ -92,11 +92,9 @@ public class SOVratiListuStatistikaTest {
     
       @Test
     public void testExecuteNeuspesno() throws Exception {
-        // Simuliranje izuzetka prilikom poziva select metode
         when(dbBroker.select(statistika)).thenThrow(new RuntimeException("Greška prilikom pronalaska"));
 
-        // Provera da li se izuzetak propušta dalje
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(statistika);
         });
 

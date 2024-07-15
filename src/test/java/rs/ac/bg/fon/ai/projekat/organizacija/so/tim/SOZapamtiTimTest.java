@@ -34,7 +34,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOZapamtiTimTest {
@@ -103,7 +103,7 @@ public class SOZapamtiTimTest {
     public void testExecuteNeuspesnoUpdate() throws Exception {
         doThrow(new RuntimeException("Greska prilikom pamcenje")).when(dbBroker).update(tim);
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(tim);
         });
 
@@ -114,7 +114,7 @@ public class SOZapamtiTimTest {
         DetaljiPozicija dp = new DetaljiPozicija();
         doThrow(new RuntimeException("Greska prilikom brisanja")).when(dbBroker).delete(dp);
 
-        Exception exception = assertThrows(Exception.class, () -> {
+       assertThrows(Exception.class, () -> {
             so.execute(tim);
         });
 

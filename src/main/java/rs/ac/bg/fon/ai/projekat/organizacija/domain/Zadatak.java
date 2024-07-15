@@ -23,7 +23,8 @@ import java.util.Objects;
 /**
  * 
  *Predstavlja Zadatak koji je dodeljen timu i clanu unutar tima za koga se beleze statistike
- * @author Ivana
+ * 
+ * @author Ivana Fimic
  */
 public class Zadatak extends AbstractDomainObject {
 

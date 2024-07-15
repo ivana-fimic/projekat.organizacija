@@ -34,7 +34,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOObrisiTimTest {
@@ -94,7 +94,7 @@ public class SOObrisiTimTest {
         
         doThrow(new RuntimeException("Greska prilikom brisanja")).when(dbBroker).delete(any(AbstractDomainObject.class));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+        assertThrows(Exception.class, () -> {
             so.execute(tim);
         });
 

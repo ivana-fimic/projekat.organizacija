@@ -12,13 +12,11 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija  za kreiranje resursa u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije kreiranja.
+ * @author Ivana Fimic
  */
+
 public class SOKreirajResurs extends AbstractSO {
   /**
      * Resurs koji se kreira

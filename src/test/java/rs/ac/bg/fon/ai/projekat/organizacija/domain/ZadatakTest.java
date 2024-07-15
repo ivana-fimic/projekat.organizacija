@@ -20,7 +20,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.Moodovi;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class ZadatakTest {
 
@@ -114,14 +114,14 @@ public class ZadatakTest {
 
     @Test
     void testSetNazivZadatkaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> z.setNazivZadatka(null));
 
     }
 
     @Test
     void testSetNazivZadatakSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> z.setNazivZadatka("a5"));
 
     }
@@ -146,7 +146,7 @@ public class ZadatakTest {
 
     @Test
     void testSetTimNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> z.setTim(null));
 
     }

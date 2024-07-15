@@ -16,7 +16,7 @@ import java.util.Objects;
 /**
  * Predstavlja resurs koji se koristi u okviru tima za izvršavanje zadatka.
  * 
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class Resurs extends AbstractDomainObject {
 

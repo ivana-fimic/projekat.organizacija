@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public abstract class AbstractDomainObject implements Serializable {
     public abstract String nazivTabele();

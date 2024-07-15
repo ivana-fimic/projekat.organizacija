@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SOZapamtiClanaTest {
@@ -85,7 +85,7 @@ public class SOZapamtiClanaTest {
 
         doThrow(new RuntimeException("Greska prilikom izmene")).when(dbBroker).update(clan);
 
-        Exception exception = assertThrows(Exception.class, () -> {
+         assertThrows(Exception.class, () -> {
             so.execute(clan);
         });
     }

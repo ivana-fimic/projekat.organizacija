@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class ProjekatTest {
 
@@ -66,9 +66,7 @@ public class ProjekatTest {
 
     }
 
-    /**
-     * Test of setNazivProjekta method, of class Projekat.
-     */
+   
     @Test
     public void testSetNazivProjekta() {
         p.setNazivProjekta("BDW");
@@ -78,28 +76,26 @@ public class ProjekatTest {
     @Test
     void testSetNazivProjektaNull() {
         
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+       assertThrows(java.lang.NullPointerException.class,
                 () -> p.setNazivProjekta(null));
 
     }
 
     @Test
     void testSetNazivProjektaSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+         assertThrows(java.lang.IllegalArgumentException.class,
                 () -> p.setNazivProjekta("a5"));
 
     }
     
     @Test
     void testSetNazivProjektaVelikaSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> p.setNazivProjekta("aa"));
 
     }
 
-    /**
-     * Test of setVrstaProjekta method, of class Projekat.
-     */
+  
     @Test
     public void testSetVrstaProjekta() {
         p.setVrstaProjekta("dizajn");
@@ -109,14 +105,14 @@ public class ProjekatTest {
     @Test
     void testSetVrstaProjektaNull() {
         
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+       assertThrows(java.lang.NullPointerException.class,
                 () -> p.setVrstaProjekta(null));
 
     }
 
     @Test
     void testSetVrstaProjektaSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> p.setVrstaProjekta("a5"));
 
     }
@@ -136,16 +132,12 @@ public class ProjekatTest {
     @Test
     void testSetDatumPocetkaNull() {
         
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> p.setDatumPocetka(null));
 
     }
     
-    
-
-    /**
-     * Test of setDatumZavrsetka method, of class Projekat.
-     */
+   
     @Test
     public void testSetDatumZavrsetka() {
         LocalDate d = LocalDate.of(2024, 7, 15);
@@ -156,15 +148,12 @@ public class ProjekatTest {
      @Test
     void testSetDatumZavrsetkaNull() {
         
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> p.setDatumZavrsetka(null));
 
     }
 
-  
-    /**
-     * Test of toString method, of class Projekat.
-     */
+ 
     @Test
     public void testToString() {
         p.setNazivProjekta("BDW");

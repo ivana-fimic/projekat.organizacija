@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class ResursTest {
 
@@ -71,50 +71,43 @@ public class ResursTest {
 
     }
 
-    /**
-     * Test of setNazivResursa method, of class Resurs.
-     */
+    
     @Test
     public void testSetNazivResursa() {
         r.setNazivResursa("oprema");
         assertEquals("oprema", r.getNazivResursa());
 
     }
+
     @Test
     void testSetNazivResursaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> r.setNazivResursa(null));
 
     }
 
     @Test
     void testSetNazivResursaPrazno() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> r.setNazivResursa(""));
 
     }
 
-    /**
-     * Test of setKolicina method, of class Resurs.
-     */
+    
     @Test
     public void testSetKolicina() {
         r.setKolicina(3);
         assertEquals(3, r.getKolicina());
     }
-     @Test
-	void testSetKolicinaManjeOdNula() {
-		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
-				() -> r.setKolicina(-5)	);
-		
-	}
 
-    /**
-     * Test of getTim method, of class Resurs.
-     */
-    /**
-     * Test of setTim method, of class Resurs.
-     */
+    @Test
+    void testSetKolicinaManjeOdNula() {
+        
+        assertThrows(java.lang.IllegalArgumentException.class,
+                () -> r.setKolicina(-5));
+
+    }
+
     @Test
     public void testSetTim() {
         LocalDate datumP = LocalDate.of(2024, 7, 15);
@@ -131,16 +124,15 @@ public class ResursTest {
         assertEquals(datumZ, r.getTim().getProjekat().getDatumZavrsetka());
 
     }
+
     @Test
     void testSetTimNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> r.setTim(null));
 
     }
 
-    /**
-     * Test of toString method, of class Resurs.
-     */
+  
     @Test
     public void testToString() {
         r.setNazivResursa("oprema");
@@ -149,7 +141,8 @@ public class ResursTest {
         System.out.println(st);
         assertTrue(st.contains("oprema"));
     }
-     @Test
+
+    @Test
     void testEqualsObject() {
         Resurs z2 = r;
 

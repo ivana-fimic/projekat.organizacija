@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.tim.SOUcitajTim;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 

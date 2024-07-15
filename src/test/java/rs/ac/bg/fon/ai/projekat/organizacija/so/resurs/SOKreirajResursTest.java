@@ -28,7 +28,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.projekat.SOKreirajProjekat;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 
@@ -101,7 +101,7 @@ public class SOKreirajResursTest {
    
         when(dbBroker.insert(r)).thenThrow(new RuntimeException("Greska prilikom kreiranja resursa"));
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
+         assertThrows(RuntimeException.class, () -> {
             so.execute(r);
         });
 

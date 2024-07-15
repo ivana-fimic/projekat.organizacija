@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class Admin  extends AbstractDomainObject{
     private long adminID;

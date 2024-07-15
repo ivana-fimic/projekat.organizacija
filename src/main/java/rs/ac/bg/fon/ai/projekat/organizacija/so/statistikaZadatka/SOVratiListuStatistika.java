@@ -12,14 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za vraćanje liste statistika zadatka iz baze podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i
  * izvršenje operacije vraćanja liste.
+ * @author Ivana Fimic
  */
+
 public class SOVratiListuStatistika extends AbstractSO {
 
     /**

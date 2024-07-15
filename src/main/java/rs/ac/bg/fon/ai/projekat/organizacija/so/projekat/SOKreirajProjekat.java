@@ -10,14 +10,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Projekat;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za kreiranje novog projekta i čuvanje u bazu podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i
  * izvršenje operacije kreiranja.
+ * @author Ivana Fimic
  */
+
 public class SOKreirajProjekat extends AbstractSO {
 
     /**

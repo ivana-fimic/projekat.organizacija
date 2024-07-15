@@ -10,13 +10,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za učitavanje tima iz baze podataka. Nasleđuje apstraktnu
  * klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOUcitajTim extends AbstractSO {
 
     /**

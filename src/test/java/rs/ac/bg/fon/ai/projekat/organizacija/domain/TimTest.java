@@ -20,7 +20,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.Moodovi;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class TimTest {
 
@@ -140,21 +140,21 @@ public class TimTest {
 
     @Test
     void testSetNazivTimaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> t.setNazivTima(null));
 
     }
 
     @Test
     void testSetNazivTimaSlova() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+       assertThrows(java.lang.IllegalArgumentException.class,
                 () -> t.setNazivTima("a5"));
 
     }
 
     @Test
     void testSetNazivTimaVelikoPocetno() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+         assertThrows(java.lang.IllegalArgumentException.class,
                 () -> t.setNazivTima("pr"));
 
     }
@@ -171,7 +171,7 @@ public class TimTest {
 
     @Test
     void testSetBrojClanovaManjeOdNula() {
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+        assertThrows(java.lang.IllegalArgumentException.class,
                 () -> t.setBrojClanova(-5));
 
     }
@@ -193,7 +193,7 @@ public class TimTest {
 
     @Test
     void testSetIDProjektaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> t.setProjekat(null));
 
     }

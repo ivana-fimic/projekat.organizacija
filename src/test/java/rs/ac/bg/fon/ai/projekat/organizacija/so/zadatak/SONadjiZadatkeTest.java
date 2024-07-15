@@ -30,7 +30,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.tim.SONadjiTimove;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 @ExtendWith(MockitoExtension.class)
 public class SONadjiZadatkeTest {

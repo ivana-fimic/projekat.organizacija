@@ -19,7 +19,7 @@ import rs.ac.bg.fon.ai.projekat.organizacija.pomocne.FazaZadatka;
 
 /**
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class StatistikaZadatkaTest {
 
@@ -91,9 +91,7 @@ public class StatistikaZadatkaTest {
 
     }
 
-    /**
-     * Test of setClan method, of class StatistikaZadatka.
-     */
+   
     @Test
     public void testSetClan() {
         LocalDate datumP = LocalDate.of(2024, 7, 15);
@@ -122,15 +120,12 @@ public class StatistikaZadatkaTest {
 
     @Test
     void testSetClanNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> st.setClan(null));
 
     }
 
-    /**
-     * Test of setZadatak method, of class StatistikaZadatka.
-     */
-    @Test
+    
     public void testSetZadatak() {
 
         LocalDate datumP = LocalDate.of(2024, 7, 15);
@@ -152,14 +147,12 @@ public class StatistikaZadatkaTest {
 
     @Test
     void testSetZadatakNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> st.setZadatak(null));
 
     }
 
-    /**
-     * Test of setFazaZadatka method, of class StatistikaZadatka.
-     */
+    
     @Test
     public void testSetFazaZadatka() {
 
@@ -170,15 +163,13 @@ public class StatistikaZadatkaTest {
     
     @Test
     void testSetFazaZadatkaNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+      assertThrows(java.lang.NullPointerException.class,
                 () -> st.setFazaZadatka(null));
 
     }
     
 
-    /**
-     * Test of setDatumDodele method, of class StatistikaZadatka.
-     */
+  
     @Test
     public void testSetDatumDodele() {
 
@@ -189,15 +180,13 @@ public class StatistikaZadatkaTest {
     }
     @Test
     void testSetDatumDodeleNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+        assertThrows(java.lang.NullPointerException.class,
                 () -> st.setDatumDodele(null));
 
     }
     
 
-    /**
-     * Test of setKrajnjiRok method, of class StatistikaZadatka.
-     */
+
     @Test
     public void testSetKrajnjiRok() {
 
@@ -209,7 +198,7 @@ public class StatistikaZadatkaTest {
     
     @Test
     void testSetKrajnjiRokNull() {
-        Exception e = assertThrows(java.lang.NullPointerException.class,
+         assertThrows(java.lang.NullPointerException.class,
                 () -> st.setKrajnjiRok(null));
 
     }
@@ -217,7 +206,7 @@ public class StatistikaZadatkaTest {
     @Test
     void testSetKrajnjiRokProslost() {
         LocalDate datumP = LocalDate.of(2023, 7, 15);
-        Exception e = assertThrows(java.lang.IllegalArgumentException.class,
+         assertThrows(java.lang.IllegalArgumentException.class,
                 () -> st.setKrajnjiRok(datumP));
 
     }

@@ -27,8 +27,8 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Tim;
 
 /**
  *
- * @author Ivana
- */
+ * @author Ivana Fimic
+ */ 
 @ExtendWith(MockitoExtension.class)
 public class SOUcitajListuPozicijaTest {
 
@@ -80,7 +80,7 @@ public class SOUcitajListuPozicijaTest {
     public void testExecuteNeuspesno() throws Exception {
         when(dbBroker.select(pozicija)).thenThrow(new RuntimeException("Greska prilikom pronalaska"));
 
-        Exception exception = assertThrows(Exception.class, () -> {
+         assertThrows(Exception.class, () -> {
             so.execute(pozicija);
         });
 

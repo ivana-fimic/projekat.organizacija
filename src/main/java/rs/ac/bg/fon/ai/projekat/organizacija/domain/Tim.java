@@ -22,7 +22,7 @@ import java.util.Objects;
  * Predstavlja tim unutar studentske organizacije koji je sastavljen od pozicija klase Pozicija unutar koga se pamte detalji pozicija,
  *  i prati se na kom projektu radi tim
  *
- * @author Ivana
+ * @author Ivana Fimic
  */
 public class Tim extends AbstractDomainObject {
 

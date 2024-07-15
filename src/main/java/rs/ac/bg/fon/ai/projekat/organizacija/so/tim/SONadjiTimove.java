@@ -11,14 +11,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 import java.util.ArrayList;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za pronalaženje timova iz baze podataka. Nasleđuje
  * apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje
  * operacije pretrage.
+ * @author Ivana Fimic
  */
+
 public class SONadjiTimove extends AbstractSO {
 
     /**

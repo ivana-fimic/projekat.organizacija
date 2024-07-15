@@ -14,13 +14,12 @@ import java.util.List;
 
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za pretragu i učitavanje liste članova iz baze podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije pretrage.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SONadjiClanove extends AbstractSO{
 List<Clan> lista;
 /**

@@ -10,14 +10,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.domain.Zadatak;
 import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za učitavanje zadatka iz baze podataka. Nasleđuje
- * apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje
- * operacije.
+ * apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ *
+ * @author Ivana Fimic
  */
+
 public class SOUcitajZadatak extends AbstractSO {
 
     /**

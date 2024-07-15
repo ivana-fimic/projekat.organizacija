@@ -19,7 +19,8 @@ import java.util.Objects;
 /**
  *Predstavlja statistiku vezanu za izvršavanje zadatka od strane člana tima u kojoj se beleze
  * faza,datum dodele i krajnji rok zadatka
- * @author Ivana
+ * 
+ * @author Ivana Fimic
  */
 public class StatistikaZadatka extends AbstractDomainObject {
 

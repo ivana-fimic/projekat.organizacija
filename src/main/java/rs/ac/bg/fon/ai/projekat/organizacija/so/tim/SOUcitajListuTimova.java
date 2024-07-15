@@ -11,14 +11,13 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 import java.util.ArrayList;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za učitavanje liste timova iz baze podataka. Nasleđuje
  * apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje
  * operacije.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOUcitajListuTimova extends AbstractSO {
 
     /**

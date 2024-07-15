@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * Predstavlja poziciju unutar tima sa IDPozicije i nazivom
  *
- * @autor Ivana
+ * @autor Ivana Fimic
  */
 public class Pozicija extends AbstractDomainObject {
 

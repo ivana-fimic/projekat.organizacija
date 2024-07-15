@@ -12,13 +12,12 @@ import rs.ac.bg.fon.ai.projekat.organizacija.so.AbstractSO;
 
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija za čuvanje podataka o clanu u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije čuvanja.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOZapamtiClana extends AbstractSO{
 /**
      * Validira da li je prosleđeni objekat instanca klase Clan.

@@ -13,13 +13,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Ivana
- */
-/**
  * Sistemska operacija  za kreiranje novog tima
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije kreiranja.
+ * @author Ivana Fimic
  */
+
 public class SOKreirajTim extends AbstractSO {
  /**
      * Tim koji se kreira.

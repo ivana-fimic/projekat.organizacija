@@ -16,13 +16,12 @@ import java.util.logging.Logger;
 
 
 /**
- *
- * @author Ivana
- */
-/**
- * Sistemska operacija  za kreiranje novog zadatka i  statistika tih zadataka u bazi podataka.
+ *Sistemska operacija  za kreiranje novog zadatka i  statistika tih zadataka u bazi podataka.
  * Nasleđuje apstraktnu klasu AbstractSO i implementira metode za validaciju i izvršenje operacije.
+ * 
+ * @author Ivana Fimic
  */
+
 public class SOKreirajZadatak extends AbstractSO {
     /**
      * Kreirani zadatak
