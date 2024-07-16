@@ -54,7 +54,7 @@ public class SOUcitajTimTest {
     }
 
     @Test
-    public void testValidateClanWithValidData() throws Exception {
+    public void testValidateTimWithValidData() throws Exception {
         Tim validTim = new Tim();
         assertDoesNotThrow(() -> {
             so.validate(validTim);
@@ -62,7 +62,7 @@ public class SOUcitajTimTest {
     }
 
     @Test
-    public void testValidateClanWithInvalidData() {
+    public void testValidateTimWithInvalidData() {
         assertThrows(Exception.class, () -> {
             so.validate(new Clan());
         });

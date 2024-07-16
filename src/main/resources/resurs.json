@@ -1,13 +1,33 @@
 {
-  "nazivResursa": "Laptop",
-  "kolicina": 5,
+  "nazivResursa": "projektor",
+  "kolicina": 2,
   "tim": {
-    "nazivTima": "FR",
+    "nazivTima": "Dizajn",
     "projekat": {
-      "naziv": "AIBG",
-      "vrsta": "hakaton",
-      "datum": "2024-12-01",
-      "datum zavrsetka": "2023-12-03"
-    }
+      "naziv": "BDW",
+      "vrsta": "dizajn",
+      "datum": "2024-04-11",
+      "datum zavrsetka": "2023-05-18"
+    },
+    "brojPozicija": [
+      {
+        "pozicija": {
+          "nazivPozicije": "Koordinator"
+        },
+        "brojPozicija": 1
+      },
+      {
+        "pozicija": {
+          "nazivPozicije": "Èlan"
+        },
+        "brojPozicija": 7
+      },
+      {
+        "pozicija": {
+          "nazivPozicije": "Asistent"
+        },
+        "brojPozicija": 1
+      }
+    ]
   }
 }

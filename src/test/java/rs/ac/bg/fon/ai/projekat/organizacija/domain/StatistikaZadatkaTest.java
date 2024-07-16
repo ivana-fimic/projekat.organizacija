@@ -190,7 +190,7 @@ public class StatistikaZadatkaTest {
     @Test
     public void testSetKrajnjiRok() {
 
-        LocalDate datumP = LocalDate.of(2024, 7, 15);
+        LocalDate datumP = LocalDate.of(2024, 7, 20);
         st.setKrajnjiRok(datumP);
         assertEquals(datumP, st.getKrajnjiRok());
 

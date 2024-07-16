@@ -1,19 +1,45 @@
 {
-  "IDClana": 35,
-  "Ime": "Lana",
-  "Prezime": "Siljkovic",
+  "IDClana": 36,
+  "Ime": "Mina",
+  "Prezime": "Janjic",
   "Godina studija": 2,
   "pozicija": {
-    "nazivPozicije": "Koordinator"
+    "nazivPozicije": "Èlan"
   },
   "tim": {
-    "nazivTima": "LOG",
+    "nazivTima": "IT",
     "projekat": {
-      "naziv": "JF",
-      "vrsta": "sajam poslova",
-      "datum": "2023-11-01",
-      "datum zavrsetka": "2024-11-03"
-    }
+      "naziv": "AIBG",
+      "vrsta": "hakaton",
+      "datum": "2024-12-01",
+      "datum zavrsetka": "2023-12-03"
+    },
+    "brojPozicija": [
+      {
+        "pozicija": {
+          "nazivPozicije": "Koordinator"
+        },
+        "brojPozicija": 1
+      },
+      {
+        "pozicija": {
+          "nazivPozicije": "Èlan"
+        },
+        "brojPozicija": 9
+      },
+      {
+        "pozicija": {
+          "nazivPozicije": "Asistent"
+        },
+        "brojPozicija": 3
+      },
+      {
+        "pozicija": {
+          "nazivPozicije": "Zamenik koordinatora"
+        },
+        "brojPozicija": 2
+      }
+    ]
   },
-  "Fakultet": "FON"
+  "Fakultet": "ETF"
 }

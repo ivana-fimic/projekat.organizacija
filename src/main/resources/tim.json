@@ -1,0 +1,23 @@
+{
+  "nazivTima": "Aa",
+  "projekat": {
+    "naziv": "AIBG",
+    "vrsta": "hakaton",
+    "datum": "2024-12-01",
+    "datum zavrsetka": "2023-12-03"
+  },
+  "brojPozicija": [
+    {
+      "pozicija": {
+        "nazivPozicije": "Koordinator"
+      },
+      "brojPozicija": 1
+    },
+    {
+      "pozicija": {
+        "nazivPozicije": "Èlan"
+      },
+      "brojPozicija": 1
+    }
+  ]
+}

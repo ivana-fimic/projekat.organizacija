@@ -78,7 +78,7 @@ public class SOKreirajTimTest {
         Tim newTim = new Tim(1, "PR", 8, new Projekat(1, "BDW", "dizajn", datumP, datumZ));
         List<DetaljiPozicija> pozicije = new ArrayList<>();
         pozicije.add(new DetaljiPozicija(newTim, new Pozicija(1, "Koordinator"), 2));
-        pozicije.add(new DetaljiPozicija(newTim, new Pozicija(1, "Koordinator"), 1));
+        pozicije.add(new DetaljiPozicija(newTim, new Pozicija(2, "Clan"), 1));
         newTim.setBrojPozicija(pozicije);
 
         when(dbBroker.insert(newTim)).thenReturn(newTim);

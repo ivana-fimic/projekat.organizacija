@@ -126,7 +126,7 @@ public class SOZapamtiZadatakTest {
         List<StatistikaZadatka> statistika = Arrays.asList(sz);
         zadatak.setStatistika(statistika);
 
-        when(dbBroker.insert(any(AbstractDomainObject.class))).thenThrow(new RuntimeException("Greska prilikom kreiranja zadatka"));
+        when(dbBroker.insert(any(DetaljiPozicija.class))).thenThrow(new RuntimeException("Greska prilikom kreiranja zadatka"));
 
         assertThrows(Exception.class, () -> {
             so.execute(zadatak);

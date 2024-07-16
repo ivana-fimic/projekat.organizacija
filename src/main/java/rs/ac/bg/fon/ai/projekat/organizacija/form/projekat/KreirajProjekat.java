@@ -199,10 +199,7 @@ public class KreirajProjekat extends javax.swing.JDialog {
         gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
                 -> new com.google.gson.JsonPrimitive(src.toString())
         );
-        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
-                -> LocalDate.parse(json.getAsString())
-        );
-
+        
         Gson gson = gsonBuilder.create();
 
         try (FileWriter out = new FileWriter(filePath)) {

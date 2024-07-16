@@ -57,7 +57,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         popuniComboe();
         cmbPozicija1.setSelectedIndex(-1);
         model = new ModelTabeleBrojPozicija();
-        tblBrPozicija.setModel(model);
+        tblBrPozicija1.setModel(model);
 
     }
 
@@ -371,7 +371,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         int broj = Integer.parseInt(txtBrojPozicije1.getText());
 
         DetaljiPozicija p = new DetaljiPozicija(t, poz, broj);
-        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija.getModel();
+        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija1.getModel();
 
         if (tm.postojiPozicija(p)) {
             JOptionPane.showMessageDialog(this, "Vec ste uneli tu poziciju za ovaj tim!");
@@ -439,7 +439,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnDodaj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodaj1ActionPerformed
-        String pozicija = cmbPozicija1.getSelectedItem().toString();
+        String pozicija = cmbPozicija2.getSelectedItem().toString();
         Pozicija poz = new Pozicija();
         for (Pozicija p : pozicije) {
             if (p.getNazivPozicije().equals(pozicija)) {
@@ -447,10 +447,10 @@ public class KreiranjeTima extends javax.swing.JDialog {
             }
 
         }
-        int broj = Integer.parseInt(txtBrojPozicije1.getText());
+        int broj = Integer.parseInt(txtBrojPozicije2.getText());
 
         DetaljiPozicija p = new DetaljiPozicija(t, poz, broj);
-        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija.getModel();
+        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija1.getModel();
 
         if (tm.postojiPozicija(p)) {
             JOptionPane.showMessageDialog(this, "Vec ste uneli tu poziciju za ovaj tim!");
@@ -464,7 +464,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         int row = tblBrPozicija.getSelectedRow();
 
         if (row >= 0) {
-            ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija.getModel();
+            ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija1.getModel();
             tm.obrisiPoziciju(row);
         }
     }//GEN-LAST:event_btnObrisi1ActionPerformed
@@ -510,6 +510,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         try {
             t = KlijentController.getInstance().dodajTim(t);
             JOptionPane.showMessageDialog(this, "Sistem je kreirao tim");
+            upisiUJSON(t);
             osveziFormu();
         } catch (Exception ex) {
             Logger.getLogger(KreiranjeTima.class.getName()).log(Level.SEVERE, null, ex);
@@ -560,7 +561,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         cmbProjekti.setSelectedIndex(-1);
 
         for (Pozicija p : pozicije) {
-            cmbPozicija1.addItem(p.getNazivPozicije());
+            cmbPozicija2.addItem(p.getNazivPozicije());
 
         }
 
@@ -573,7 +574,7 @@ public class KreiranjeTima extends javax.swing.JDialog {
         cmbPozicija1.setSelectedIndex(-1);
         txtBrojPozicije1.setText("");
 
-        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija.getModel();
+        ModelTabeleBrojPozicija tm = (ModelTabeleBrojPozicija) tblBrPozicija1.getModel();
         int rowCount = tm.getRowCount();
         if (rowCount > 0) {
             for (int i = rowCount - 1; i >= 0; i--) {
@@ -646,9 +647,6 @@ public class KreiranjeTima extends javax.swing.JDialog {
         gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonSerializer<LocalDate>) (src, typeOfSrc, context)
                 -> new com.google.gson.JsonPrimitive(src.toString())
         );
-        gsonBuilder.registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context)
-                -> LocalDate.parse(json.getAsString())
-        );
 
         Gson gson = gsonBuilder.create();
 
@@ -664,9 +662,9 @@ public class KreiranjeTima extends javax.swing.JDialog {
     }
 
     private void postaviLayout() {
-         txtNazivTima.setMaximumSize(new java.awt.Dimension(230, 20));
-    txtUkupnoClanova.setMaximumSize(new java.awt.Dimension(230, 20));
-    cmbProjekti.setMaximumSize(new java.awt.Dimension(230, 20));
+        txtNazivTima.setMaximumSize(new java.awt.Dimension(230, 20));
+        txtUkupnoClanova.setMaximumSize(new java.awt.Dimension(230, 20));
+        cmbProjekti.setMaximumSize(new java.awt.Dimension(230, 20));
     }
 
 }
